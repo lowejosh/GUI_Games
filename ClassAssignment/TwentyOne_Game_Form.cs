@@ -7,11 +7,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Low_Level_Objects_Library;
 
 namespace ClassAssignment {
     public partial class TwentyOne_Game_Form : Form {
         public TwentyOne_Game_Form() {
             InitializeComponent();
+        }
+        
+
+        private void DisplayGuiHand(Hand hand, TableLayoutPanel tableLayoutPanel) {
+            tableLayoutPanel.Controls.Clear(); // Remove any cards already being shown.
+            foreach (Card card in hand) {
+                // Construct a PictureBox object.
+                PictureBox pictureBox = new PictureBox();
+                // Set the PictureBox to use all of its space
+                pictureBox.Dock = DockStyle.Fill;
+                // Remove spacing around the PictureBox. (Default is 3 pixels.)
+                pictureBox.Margin = new Padding(0);
+                pictureBox.Image = Images.GetCardImage(card);
+                // Add the PictureBox object to the tableLayoutPanel.
+                tableLayoutPanel.Controls.Add(pictureBox);
+            }
+        }// End DisplayGuiHand
+
+        private void TestButton_Click(object sender, EventArgs e) {
+            const int testNumOfCardsForDealer = 2;
+            const int testNumOfCardsForPlayer = 8;
+            CardPile testCardPile = new CardPile(true);
+            testCardPile.Shuffle();
+            Hand testHandForDealer = new Hand(testCardPile.DealCards(testNumOfCardsForDealer));
+            Hand testHandForPlayer = new Hand(testCardPile.DealCards(testNumOfCardsForPlayer));
+            DisplayGuiHand(testHandForDealer, DealerTable);
+            DisplayGuiHand(testHandForPlayer, PlayerTable);
         }
     }
 }

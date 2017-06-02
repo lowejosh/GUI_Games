@@ -55,6 +55,7 @@
             this.RollButton.Name = "RollButton";
             this.RollButton.Size = new System.Drawing.Size(87, 23);
             this.RollButton.TabIndex = 1;
+            this.RollButton.TabStop = false;
             this.RollButton.Text = "Roll";
             this.RollButton.UseVisualStyleBackColor = false;
             this.RollButton.Click += new System.EventHandler(this.RollButton_Click);
@@ -67,22 +68,32 @@
             this.HoldButton.Name = "HoldButton";
             this.HoldButton.Size = new System.Drawing.Size(87, 23);
             this.HoldButton.TabIndex = 2;
+            this.HoldButton.TabStop = false;
             this.HoldButton.Text = "Hold";
             this.HoldButton.UseVisualStyleBackColor = false;
+            this.HoldButton.Click += new System.EventHandler(this.HoldButton_Click);
             // 
             // Player1TotalTextBox
             // 
+            this.Player1TotalTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1TotalTextBox.Location = new System.Drawing.Point(341, 57);
             this.Player1TotalTextBox.Name = "Player1TotalTextBox";
+            this.Player1TotalTextBox.ReadOnly = true;
             this.Player1TotalTextBox.Size = new System.Drawing.Size(68, 20);
             this.Player1TotalTextBox.TabIndex = 3;
+            this.Player1TotalTextBox.TabStop = false;
+            this.Player1TotalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Player2TotalTextBox
             // 
+            this.Player2TotalTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player2TotalTextBox.Location = new System.Drawing.Point(341, 95);
             this.Player2TotalTextBox.Name = "Player2TotalTextBox";
+            this.Player2TotalTextBox.ReadOnly = true;
             this.Player2TotalTextBox.Size = new System.Drawing.Size(68, 20);
             this.Player2TotalTextBox.TabIndex = 4;
+            this.Player2TotalTextBox.TabStop = false;
+            this.Player2TotalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // AnotherGameGroup
             // 
@@ -103,9 +114,9 @@
             this.NoRadio.Name = "NoRadio";
             this.NoRadio.Size = new System.Drawing.Size(41, 17);
             this.NoRadio.TabIndex = 1;
-            this.NoRadio.TabStop = true;
             this.NoRadio.Text = "No";
             this.NoRadio.UseVisualStyleBackColor = true;
+            this.NoRadio.CheckedChanged += new System.EventHandler(this.NoRadio_CheckedChanged);
             // 
             // YesRadio
             // 
@@ -114,9 +125,9 @@
             this.YesRadio.Name = "YesRadio";
             this.YesRadio.Size = new System.Drawing.Size(46, 17);
             this.YesRadio.TabIndex = 0;
-            this.YesRadio.TabStop = true;
             this.YesRadio.Text = "Yes";
             this.YesRadio.UseVisualStyleBackColor = true;
+            this.YesRadio.CheckedChanged += new System.EventHandler(this.YesRadio_CheckedChanged);
             // 
             // TextLine1
             // 
@@ -148,7 +159,7 @@
             // TextLine2
             // 
             this.TextLine2.AutoSize = true;
-            this.TextLine2.Location = new System.Drawing.Point(21, 98);
+            this.TextLine2.Location = new System.Drawing.Point(12, 95);
             this.TextLine2.Name = "TextLine2";
             this.TextLine2.Size = new System.Drawing.Size(67, 13);
             this.TextLine2.TabIndex = 9;

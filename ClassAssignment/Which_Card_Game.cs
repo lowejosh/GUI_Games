@@ -33,7 +33,7 @@ namespace ClassAssignment {
         }
 
         private void ExitButton_Click(object sender, EventArgs e) {
-            DialogResult result = MessageBox.Show("Do you reallly want to quit?", "Quit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Do you really want to quit?", "Quit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes) {
                 this.Hide();
                 Initial_Menu GameForm = new Initial_Menu();
