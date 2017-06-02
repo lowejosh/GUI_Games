@@ -24,20 +24,19 @@
         /// </summary>
         private void InitializeComponent() {
             this.DealerTable = new System.Windows.Forms.TableLayoutPanel();
-            this.PlayerTable = new System.Windows.Forms.TableLayoutPanel();
+            this.playerTable = new System.Windows.Forms.TableLayoutPanel();
             this.DealButton = new System.Windows.Forms.Button();
             this.HitButton = new System.Windows.Forms.Button();
             this.StandButton = new System.Windows.Forms.Button();
             this.CancelGameButton = new System.Windows.Forms.Button();
-            this.TestButton = new System.Windows.Forms.Button();
-            this.DealerBustedLabel = new System.Windows.Forms.Label();
+            this.dealerBustedLabel = new System.Windows.Forms.Label();
             this.DealerLabel = new System.Windows.Forms.Label();
-            this.DealerPointsLabel = new System.Windows.Forms.Label();
+            this.dealerPointsLabel = new System.Windows.Forms.Label();
             this.DealerGamesWonLabel = new System.Windows.Forms.Label();
             this.DealerGamesWonCountLabel = new System.Windows.Forms.Label();
-            this.PlayerBustedLabel = new System.Windows.Forms.Label();
+            this.playerBustedLabel = new System.Windows.Forms.Label();
             this.PlayerLabel = new System.Windows.Forms.Label();
-            this.PlayerPointsLabel = new System.Windows.Forms.Label();
+            this.playerPointsLabel = new System.Windows.Forms.Label();
             this.PlayerGamesWonLabel = new System.Windows.Forms.Label();
             this.PlayerGamesWonCountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -60,23 +59,23 @@
             this.DealerTable.Size = new System.Drawing.Size(580, 98);
             this.DealerTable.TabIndex = 0;
             // 
-            // PlayerTable
+            // playerTable
             // 
-            this.PlayerTable.ColumnCount = 8;
-            this.PlayerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.PlayerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.PlayerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.PlayerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.PlayerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.PlayerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.PlayerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.PlayerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.PlayerTable.Location = new System.Drawing.Point(12, 218);
-            this.PlayerTable.Name = "PlayerTable";
-            this.PlayerTable.RowCount = 1;
-            this.PlayerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PlayerTable.Size = new System.Drawing.Size(580, 103);
-            this.PlayerTable.TabIndex = 1;
+            this.playerTable.ColumnCount = 8;
+            this.playerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.playerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.playerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.playerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.playerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.playerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.playerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.playerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.playerTable.Location = new System.Drawing.Point(12, 218);
+            this.playerTable.Name = "playerTable";
+            this.playerTable.RowCount = 1;
+            this.playerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.playerTable.Size = new System.Drawing.Size(580, 103);
+            this.playerTable.TabIndex = 1;
             // 
             // DealButton
             // 
@@ -86,10 +85,12 @@
             this.DealButton.TabIndex = 2;
             this.DealButton.Text = "Deal";
             this.DealButton.UseVisualStyleBackColor = true;
+            this.DealButton.Click += new System.EventHandler(this.DealButton_Click);
             // 
             // HitButton
             // 
-            this.HitButton.Location = new System.Drawing.Point(131, 373);
+            this.HitButton.Enabled = false;
+            this.HitButton.Location = new System.Drawing.Point(134, 373);
             this.HitButton.Name = "HitButton";
             this.HitButton.Size = new System.Drawing.Size(75, 23);
             this.HitButton.TabIndex = 3;
@@ -98,6 +99,7 @@
             // 
             // StandButton
             // 
+            this.StandButton.Enabled = false;
             this.StandButton.Location = new System.Drawing.Point(230, 373);
             this.StandButton.Name = "StandButton";
             this.StandButton.Size = new System.Drawing.Size(75, 23);
@@ -114,27 +116,18 @@
             this.CancelGameButton.Text = "Cancel";
             this.CancelGameButton.UseVisualStyleBackColor = true;
             // 
-            // TestButton
+            // dealerBustedLabel
             // 
-            this.TestButton.Location = new System.Drawing.Point(509, 358);
-            this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(75, 23);
-            this.TestButton.TabIndex = 6;
-            this.TestButton.Text = "Test";
-            this.TestButton.UseVisualStyleBackColor = true;
-            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
-            // 
-            // DealerBustedLabel
-            // 
-            this.DealerBustedLabel.AutoSize = true;
-            this.DealerBustedLabel.BackColor = System.Drawing.Color.Transparent;
-            this.DealerBustedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DealerBustedLabel.ForeColor = System.Drawing.Color.Red;
-            this.DealerBustedLabel.Location = new System.Drawing.Point(85, 30);
-            this.DealerBustedLabel.Name = "DealerBustedLabel";
-            this.DealerBustedLabel.Size = new System.Drawing.Size(97, 25);
-            this.DealerBustedLabel.TabIndex = 7;
-            this.DealerBustedLabel.Text = "BUSTED";
+            this.dealerBustedLabel.AutoSize = true;
+            this.dealerBustedLabel.BackColor = System.Drawing.Color.Transparent;
+            this.dealerBustedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerBustedLabel.ForeColor = System.Drawing.Color.Red;
+            this.dealerBustedLabel.Location = new System.Drawing.Point(85, 30);
+            this.dealerBustedLabel.Name = "dealerBustedLabel";
+            this.dealerBustedLabel.Size = new System.Drawing.Size(97, 25);
+            this.dealerBustedLabel.TabIndex = 7;
+            this.dealerBustedLabel.Text = "BUSTED";
+            this.dealerBustedLabel.Visible = false;
             // 
             // DealerLabel
             // 
@@ -146,15 +139,16 @@
             this.DealerLabel.TabIndex = 8;
             this.DealerLabel.Text = "Dealer";
             // 
-            // DealerPointsLabel
+            // dealerPointsLabel
             // 
-            this.DealerPointsLabel.AutoSize = true;
-            this.DealerPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DealerPointsLabel.Location = new System.Drawing.Point(265, 31);
-            this.DealerPointsLabel.Name = "DealerPointsLabel";
-            this.DealerPointsLabel.Size = new System.Drawing.Size(79, 24);
-            this.DealerPointsLabel.TabIndex = 9;
-            this.DealerPointsLabel.Text = "POINTS";
+            this.dealerPointsLabel.AutoSize = true;
+            this.dealerPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerPointsLabel.Location = new System.Drawing.Point(265, 31);
+            this.dealerPointsLabel.Name = "dealerPointsLabel";
+            this.dealerPointsLabel.Size = new System.Drawing.Size(79, 24);
+            this.dealerPointsLabel.TabIndex = 9;
+            this.dealerPointsLabel.Text = "POINTS";
+            this.dealerPointsLabel.Visible = false;
             // 
             // DealerGamesWonLabel
             // 
@@ -175,17 +169,18 @@
             this.DealerGamesWonCountLabel.TabIndex = 11;
             this.DealerGamesWonCountLabel.Text = "0";
             // 
-            // PlayerBustedLabel
+            // playerBustedLabel
             // 
-            this.PlayerBustedLabel.AutoSize = true;
-            this.PlayerBustedLabel.BackColor = System.Drawing.Color.Transparent;
-            this.PlayerBustedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayerBustedLabel.ForeColor = System.Drawing.Color.Red;
-            this.PlayerBustedLabel.Location = new System.Drawing.Point(85, 324);
-            this.PlayerBustedLabel.Name = "PlayerBustedLabel";
-            this.PlayerBustedLabel.Size = new System.Drawing.Size(97, 25);
-            this.PlayerBustedLabel.TabIndex = 12;
-            this.PlayerBustedLabel.Text = "BUSTED";
+            this.playerBustedLabel.AutoSize = true;
+            this.playerBustedLabel.BackColor = System.Drawing.Color.Transparent;
+            this.playerBustedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerBustedLabel.ForeColor = System.Drawing.Color.Red;
+            this.playerBustedLabel.Location = new System.Drawing.Point(85, 324);
+            this.playerBustedLabel.Name = "playerBustedLabel";
+            this.playerBustedLabel.Size = new System.Drawing.Size(97, 25);
+            this.playerBustedLabel.TabIndex = 12;
+            this.playerBustedLabel.Text = "BUSTED";
+            this.playerBustedLabel.Visible = false;
             // 
             // PlayerLabel
             // 
@@ -197,15 +192,16 @@
             this.PlayerLabel.TabIndex = 13;
             this.PlayerLabel.Text = "Player";
             // 
-            // PlayerPointsLabel
+            // playerPointsLabel
             // 
-            this.PlayerPointsLabel.AutoSize = true;
-            this.PlayerPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayerPointsLabel.Location = new System.Drawing.Point(265, 325);
-            this.PlayerPointsLabel.Name = "PlayerPointsLabel";
-            this.PlayerPointsLabel.Size = new System.Drawing.Size(79, 24);
-            this.PlayerPointsLabel.TabIndex = 14;
-            this.PlayerPointsLabel.Text = "POINTS";
+            this.playerPointsLabel.AutoSize = true;
+            this.playerPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerPointsLabel.Location = new System.Drawing.Point(265, 325);
+            this.playerPointsLabel.Name = "playerPointsLabel";
+            this.playerPointsLabel.Size = new System.Drawing.Size(79, 24);
+            this.playerPointsLabel.TabIndex = 14;
+            this.playerPointsLabel.Text = "POINTS";
+            this.playerPointsLabel.Visible = false;
             // 
             // PlayerGamesWonLabel
             // 
@@ -233,20 +229,19 @@
             this.ClientSize = new System.Drawing.Size(604, 421);
             this.Controls.Add(this.PlayerGamesWonCountLabel);
             this.Controls.Add(this.PlayerGamesWonLabel);
-            this.Controls.Add(this.PlayerPointsLabel);
+            this.Controls.Add(this.playerPointsLabel);
             this.Controls.Add(this.PlayerLabel);
-            this.Controls.Add(this.PlayerBustedLabel);
+            this.Controls.Add(this.playerBustedLabel);
             this.Controls.Add(this.DealerGamesWonCountLabel);
             this.Controls.Add(this.DealerGamesWonLabel);
-            this.Controls.Add(this.DealerPointsLabel);
+            this.Controls.Add(this.dealerPointsLabel);
             this.Controls.Add(this.DealerLabel);
-            this.Controls.Add(this.DealerBustedLabel);
-            this.Controls.Add(this.TestButton);
+            this.Controls.Add(this.dealerBustedLabel);
             this.Controls.Add(this.CancelGameButton);
             this.Controls.Add(this.StandButton);
             this.Controls.Add(this.HitButton);
             this.Controls.Add(this.DealButton);
-            this.Controls.Add(this.PlayerTable);
+            this.Controls.Add(this.playerTable);
             this.Controls.Add(this.DealerTable);
             this.Name = "TwentyOne_Game_Form";
             this.Text = "Twenty One Game";
@@ -258,20 +253,19 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel DealerTable;
-        private System.Windows.Forms.TableLayoutPanel PlayerTable;
+        private System.Windows.Forms.TableLayoutPanel playerTable;
         private System.Windows.Forms.Button DealButton;
         private System.Windows.Forms.Button HitButton;
         private System.Windows.Forms.Button StandButton;
         private System.Windows.Forms.Button CancelGameButton;
-        private System.Windows.Forms.Button TestButton;
-        private System.Windows.Forms.Label DealerBustedLabel;
+        private System.Windows.Forms.Label dealerBustedLabel;
         private System.Windows.Forms.Label DealerLabel;
-        private System.Windows.Forms.Label DealerPointsLabel;
+        private System.Windows.Forms.Label dealerPointsLabel;
         private System.Windows.Forms.Label DealerGamesWonLabel;
         private System.Windows.Forms.Label DealerGamesWonCountLabel;
-        private System.Windows.Forms.Label PlayerBustedLabel;
+        private System.Windows.Forms.Label playerBustedLabel;
         private System.Windows.Forms.Label PlayerLabel;
-        private System.Windows.Forms.Label PlayerPointsLabel;
+        private System.Windows.Forms.Label playerPointsLabel;
         private System.Windows.Forms.Label PlayerGamesWonLabel;
         private System.Windows.Forms.Label PlayerGamesWonCountLabel;
     }

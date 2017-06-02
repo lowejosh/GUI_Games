@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using Low_Level_Objects_Library;
 
 namespace Games_Logic_Library {
-    public static class TwentyOneGame {
+    public static class TwentyOne_Game {
+        // Constant
+        public const int NUM_OF_PLAYERS = 2;
+
         // Initialise cardPile 
         private static CardPile cardPile = new CardPile(true);
 
@@ -25,7 +28,11 @@ namespace Games_Logic_Library {
         }
 
         public static Card DealOneCardTo(int who) {
-            // TODO empty card deck
+            // Create a new deck and shuffle if it is empty
+            if (cardPile.GetCount() == 0) {
+                cardPile = new CardPile(true);
+                cardPile.Shuffle();
+            }
 
             // Deal one card and add it to the player's hand
             Card c = cardPile.DealOneCard();
