@@ -39,6 +39,8 @@
             this.playerPointsLabel = new System.Windows.Forms.Label();
             this.PlayerGamesWonLabel = new System.Windows.Forms.Label();
             this.PlayerGamesWonCountLabel = new System.Windows.Forms.Label();
+            this.AcesTextLabel = new System.Windows.Forms.Label();
+            this.AceCountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // DealerTable
@@ -96,6 +98,7 @@
             this.HitButton.TabIndex = 3;
             this.HitButton.Text = "Hit";
             this.HitButton.UseVisualStyleBackColor = true;
+            this.HitButton.Click += new System.EventHandler(this.HitButton_Click);
             // 
             // StandButton
             // 
@@ -106,6 +109,7 @@
             this.StandButton.TabIndex = 4;
             this.StandButton.Text = "Stand";
             this.StandButton.UseVisualStyleBackColor = true;
+            this.StandButton.Click += new System.EventHandler(this.StandButton_Click);
             // 
             // CancelGameButton
             // 
@@ -115,6 +119,7 @@
             this.CancelGameButton.TabIndex = 5;
             this.CancelGameButton.Text = "Cancel";
             this.CancelGameButton.UseVisualStyleBackColor = true;
+            this.CancelGameButton.Click += new System.EventHandler(this.CancelGameButton_Click);
             // 
             // dealerBustedLabel
             // 
@@ -222,11 +227,32 @@
             this.PlayerGamesWonCountLabel.TabIndex = 16;
             this.PlayerGamesWonCountLabel.Text = "0";
             // 
+            // AcesTextLabel
+            // 
+            this.AcesTextLabel.AutoSize = true;
+            this.AcesTextLabel.Location = new System.Drawing.Point(214, 353);
+            this.AcesTextLabel.Name = "AcesTextLabel";
+            this.AcesTextLabel.Size = new System.Drawing.Size(91, 13);
+            this.AcesTextLabel.TabIndex = 17;
+            this.AcesTextLabel.Text = "Aces with value 1";
+            // 
+            // AceCountLabel
+            // 
+            this.AceCountLabel.AutoSize = true;
+            this.AceCountLabel.BackColor = System.Drawing.Color.White;
+            this.AceCountLabel.Location = new System.Drawing.Point(196, 353);
+            this.AceCountLabel.Name = "AceCountLabel";
+            this.AceCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.AceCountLabel.TabIndex = 18;
+            this.AceCountLabel.Text = "0";
+            // 
             // TwentyOne_Game_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 421);
+            this.Controls.Add(this.AceCountLabel);
+            this.Controls.Add(this.AcesTextLabel);
             this.Controls.Add(this.PlayerGamesWonCountLabel);
             this.Controls.Add(this.PlayerGamesWonLabel);
             this.Controls.Add(this.playerPointsLabel);
@@ -268,5 +294,7 @@
         private System.Windows.Forms.Label playerPointsLabel;
         private System.Windows.Forms.Label PlayerGamesWonLabel;
         private System.Windows.Forms.Label PlayerGamesWonCountLabel;
+        private System.Windows.Forms.Label AcesTextLabel;
+        private System.Windows.Forms.Label AceCountLabel;
     }
 }

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Low_Level_Objects_Library {
     public class Hand : IEnumerable {
-
         private List<Card> hand = new List<Card>();
 
         public Hand() {

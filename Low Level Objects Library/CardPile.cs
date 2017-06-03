@@ -93,7 +93,6 @@ namespace Low_Level_Objects_Library {
         /// of the cards in the pile.
         /// </summary>
         public void Shuffle() {
-
             for (int n = pile.Count - 1; n > 0; n--) {
                 int k = randomValue.Next(n + 1);
                 Card temp = pile[n];
