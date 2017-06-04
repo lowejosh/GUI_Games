@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClassAssignment {
-    public partial class DiceMenu : Form {
-        public DiceMenu() {
+    public partial class diceMenu : Form {
+        public diceMenu() {
             InitializeComponent();
         }
 

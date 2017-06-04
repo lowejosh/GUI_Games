@@ -15,18 +15,6 @@ namespace ClassAssignment {
         public TwentyOne_Game_Form() {
             InitializeComponent();
             TwentyOne_Game.SetUpGame();
-
-            // Class variables
-            TableLayoutPanel[] tableLayoutPanels;
-            Label[] bustedLabels;
-            Label[] pointsLabels;
-            Label[] gamesWonLabels;
-
-            // Set player and dealer panels/labels
-            tableLayoutPanels = new TableLayoutPanel[TwentyOne_Game.NUM_OF_PLAYERS] {playerTable, DealerTable};
-            bustedLabels = new Label[TwentyOne_Game.NUM_OF_PLAYERS] {playerBustedLabel, dealerBustedLabel};
-            pointsLabels = new Label[TwentyOne_Game.NUM_OF_PLAYERS] {playerPointsLabel, dealerPointsLabel};
-            gamesWonLabels = new Label[TwentyOne_Game.NUM_OF_PLAYERS] {PlayerGamesWonCountLabel, DealerGamesWonCountLabel};
         }
         
 
@@ -48,19 +36,19 @@ namespace ClassAssignment {
 
         private void UpdateGUI() {
             // Update games won count labels
-            PlayerGamesWonCountLabel.Text = TwentyOne_Game.GetNumOfGamesWon(0).ToString();
-            DealerGamesWonCountLabel.Text = TwentyOne_Game.GetNumOfGamesWon(1).ToString();
+            playerGamesWonCountLabel.Text = TwentyOne_Game.GetNumOfGamesWon(0).ToString();
+            dealerGamesWonCountLabel.Text = TwentyOne_Game.GetNumOfGamesWon(1).ToString();
 
             // Display hands onto GUI
             DisplayGuiHand(TwentyOne_Game.GetHand(0), playerTable);
-            DisplayGuiHand(TwentyOne_Game.GetHand(1), DealerTable);
+            DisplayGuiHand(TwentyOne_Game.GetHand(1), dealerTable);
 
             // Update dealer and player points label
             playerPointsLabel.Text = TwentyOne_Game.GetTotalPoints(0).ToString();
             dealerPointsLabel.Text = TwentyOne_Game.GetTotalPoints(1).ToString();
 
             // Update ace count label
-            AceCountLabel.Text = TwentyOne_Game.GetNumOfUserAcesWithValueOne().ToString();
+            aceCountLabel.Text = TwentyOne_Game.GetNumOfUserAcesWithValueOne().ToString();
         }// End UpdateGUI
 
 
@@ -74,10 +62,10 @@ namespace ClassAssignment {
                 TwentyOne_Game.DealOneCardTo(1);    // Deal two cards to dealer
             }
             DisplayGuiHand(TwentyOne_Game.GetHand(0), playerTable);
-            DisplayGuiHand(TwentyOne_Game.GetHand(1), DealerTable);
+            DisplayGuiHand(TwentyOne_Game.GetHand(1), dealerTable);
 
             // Update labels
-            AceCountLabel.Text = TwentyOne_Game.GetNumOfUserAcesWithValueOne().ToString();
+            aceCountLabel.Text = TwentyOne_Game.GetNumOfUserAcesWithValueOne().ToString();
             dealerBustedLabel.Visible = false;
             playerBustedLabel.Visible = false;
             playerPointsLabel.Text = TwentyOne_Game.CalculateHandTotal(0).ToString();
@@ -86,9 +74,9 @@ namespace ClassAssignment {
             dealerPointsLabel.Visible = true;
 
             // Enable and disable buttons
-            StandButton.Enabled = true;
-            HitButton.Enabled = true; 
-            DealButton.Enabled = false;
+            standButton.Enabled = true;
+            hitButton.Enabled = true; 
+            dealButton.Enabled = false;
         }
 
 
@@ -107,9 +95,9 @@ namespace ClassAssignment {
             // If player has busted
             if (TwentyOne_Game.CalculateHandTotal(0) > 21) {
                 // Update button enabled values
-                DealButton.Enabled = true;
-                HitButton.Enabled = false;
-                StandButton.Enabled = false;
+                dealButton.Enabled = true;
+                hitButton.Enabled = false;
+                standButton.Enabled = false;
 
                 // Show busted label
                 playerBustedLabel.Visible = true;
@@ -125,8 +113,8 @@ namespace ClassAssignment {
             TwentyOne_Game.PlayForDealer();
 
             // Update button enabled values
-            StandButton.Enabled = false;
-            HitButton.Enabled = false;
+            standButton.Enabled = false;
+            hitButton.Enabled = false;
 
             // If the dealer has busted
             if (TwentyOne_Game.GetTotalPoints(1) > 21) {
@@ -134,7 +122,7 @@ namespace ClassAssignment {
             }
 
             // Enable the player to deal again
-            DealButton.Enabled = true;
+            dealButton.Enabled = true;
 
             // Update the GUI
             UpdateGUI();

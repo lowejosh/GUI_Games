@@ -15,20 +15,20 @@ namespace ClassAssignment {
         }
 
         private void DiceRadio_CheckedChanged(object sender, EventArgs e) {
-            StartButton.Enabled = true;
+            startButton.Enabled = true;
         }
 
         private void CardRadio_CheckedChanged(object sender, EventArgs e) {
-            StartButton.Enabled = true;
+            startButton.Enabled = true;
         }
 
         private void StartButton_Click(object sender, EventArgs e) {
-            if (DiceRadio.Checked) {
+            if (diceRadio.Checked) {
                 this.Hide();
-                DiceMenu GameForm = new DiceMenu();
+                diceMenu GameForm = new diceMenu();
                 GameForm.Closed += (s, args) => this.Close();
                 GameForm.Show();
-            } else if (CardRadio.Checked) {
+            } else if (cardRadio.Checked) {
                 this.Hide();
                 Which_Card_Game GameForm = new Which_Card_Game();
                 GameForm.Closed += (s, args) => this.Close();

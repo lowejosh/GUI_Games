@@ -24,12 +24,12 @@
         /// </summary>
         private void InitializeComponent() {
             this.TitleLabel = new System.Windows.Forms.Label();
-            this.GameTypeGroup = new System.Windows.Forms.GroupBox();
-            this.CardRadio = new System.Windows.Forms.RadioButton();
-            this.DiceRadio = new System.Windows.Forms.RadioButton();
-            this.StartButton = new System.Windows.Forms.Button();
-            this.ExitButton = new System.Windows.Forms.Button();
-            this.GameTypeGroup.SuspendLayout();
+            this.gameTypeGroup = new System.Windows.Forms.GroupBox();
+            this.cardRadio = new System.Windows.Forms.RadioButton();
+            this.diceRadio = new System.Windows.Forms.RadioButton();
+            this.startButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.gameTypeGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -42,73 +42,73 @@
             this.TitleLabel.TabIndex = 0;
             this.TitleLabel.Text = "GUI Game Collection";
             // 
-            // GameTypeGroup
+            // gameTypeGroup
             // 
-            this.GameTypeGroup.Controls.Add(this.CardRadio);
-            this.GameTypeGroup.Controls.Add(this.DiceRadio);
-            this.GameTypeGroup.Location = new System.Drawing.Point(24, 76);
-            this.GameTypeGroup.Name = "GameTypeGroup";
-            this.GameTypeGroup.Size = new System.Drawing.Size(200, 100);
-            this.GameTypeGroup.TabIndex = 1;
-            this.GameTypeGroup.TabStop = false;
-            this.GameTypeGroup.Text = "Select Game Type";
+            this.gameTypeGroup.Controls.Add(this.cardRadio);
+            this.gameTypeGroup.Controls.Add(this.diceRadio);
+            this.gameTypeGroup.Location = new System.Drawing.Point(24, 76);
+            this.gameTypeGroup.Name = "gameTypeGroup";
+            this.gameTypeGroup.Size = new System.Drawing.Size(200, 100);
+            this.gameTypeGroup.TabIndex = 1;
+            this.gameTypeGroup.TabStop = false;
+            this.gameTypeGroup.Text = "Select Game Type";
             // 
-            // CardRadio
+            // cardRadio
             // 
-            this.CardRadio.AutoSize = true;
-            this.CardRadio.Location = new System.Drawing.Point(17, 63);
-            this.CardRadio.Name = "CardRadio";
-            this.CardRadio.Size = new System.Drawing.Size(76, 17);
-            this.CardRadio.TabIndex = 1;
-            this.CardRadio.Text = "Card game";
-            this.CardRadio.UseVisualStyleBackColor = true;
-            this.CardRadio.CheckedChanged += new System.EventHandler(this.CardRadio_CheckedChanged);
+            this.cardRadio.AutoSize = true;
+            this.cardRadio.Location = new System.Drawing.Point(17, 63);
+            this.cardRadio.Name = "cardRadio";
+            this.cardRadio.Size = new System.Drawing.Size(76, 17);
+            this.cardRadio.TabIndex = 1;
+            this.cardRadio.Text = "Card game";
+            this.cardRadio.UseVisualStyleBackColor = true;
+            this.cardRadio.CheckedChanged += new System.EventHandler(this.CardRadio_CheckedChanged);
             // 
-            // DiceRadio
+            // diceRadio
             // 
-            this.DiceRadio.AutoSize = true;
-            this.DiceRadio.Location = new System.Drawing.Point(17, 30);
-            this.DiceRadio.Name = "DiceRadio";
-            this.DiceRadio.Size = new System.Drawing.Size(76, 17);
-            this.DiceRadio.TabIndex = 0;
-            this.DiceRadio.Text = "Dice game";
-            this.DiceRadio.UseVisualStyleBackColor = true;
-            this.DiceRadio.CheckedChanged += new System.EventHandler(this.DiceRadio_CheckedChanged);
+            this.diceRadio.AutoSize = true;
+            this.diceRadio.Location = new System.Drawing.Point(17, 30);
+            this.diceRadio.Name = "diceRadio";
+            this.diceRadio.Size = new System.Drawing.Size(76, 17);
+            this.diceRadio.TabIndex = 0;
+            this.diceRadio.Text = "Dice game";
+            this.diceRadio.UseVisualStyleBackColor = true;
+            this.diceRadio.CheckedChanged += new System.EventHandler(this.DiceRadio_CheckedChanged);
             // 
-            // StartButton
+            // startButton
             // 
-            this.StartButton.Enabled = false;
-            this.StartButton.Location = new System.Drawing.Point(72, 206);
-            this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(75, 23);
-            this.StartButton.TabIndex = 2;
-            this.StartButton.Text = "START";
-            this.StartButton.UseVisualStyleBackColor = true;
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            this.startButton.Enabled = false;
+            this.startButton.Location = new System.Drawing.Point(72, 206);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(75, 23);
+            this.startButton.TabIndex = 2;
+            this.startButton.Text = "START";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
-            // ExitButton
+            // exitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(72, 265);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(75, 23);
-            this.ExitButton.TabIndex = 3;
-            this.ExitButton.Text = "EXIT";
-            this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            this.exitButton.Location = new System.Drawing.Point(72, 265);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.TabIndex = 3;
+            this.exitButton.Text = "EXIT";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // Initial_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(248, 323);
-            this.Controls.Add(this.ExitButton);
-            this.Controls.Add(this.StartButton);
-            this.Controls.Add(this.GameTypeGroup);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.startButton);
+            this.Controls.Add(this.gameTypeGroup);
             this.Controls.Add(this.TitleLabel);
             this.Name = "Initial_Menu";
             this.Text = "Games";
-            this.GameTypeGroup.ResumeLayout(false);
-            this.GameTypeGroup.PerformLayout();
+            this.gameTypeGroup.ResumeLayout(false);
+            this.gameTypeGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,11 +117,11 @@
         #endregion
 
         private System.Windows.Forms.Label TitleLabel;
-        private System.Windows.Forms.GroupBox GameTypeGroup;
-        private System.Windows.Forms.RadioButton CardRadio;
-        private System.Windows.Forms.RadioButton DiceRadio;
-        private System.Windows.Forms.Button StartButton;
-        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.GroupBox gameTypeGroup;
+        private System.Windows.Forms.RadioButton cardRadio;
+        private System.Windows.Forms.RadioButton diceRadio;
+        private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 

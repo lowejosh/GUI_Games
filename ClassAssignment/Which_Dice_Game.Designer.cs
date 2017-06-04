@@ -1,5 +1,5 @@
 ﻿namespace ClassAssignment {
-    partial class DiceMenu {
+    partial class diceMenu {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,77 +23,77 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.SelectDiceGameGroup = new System.Windows.Forms.GroupBox();
-            this.TwoPigRadio = new System.Windows.Forms.RadioButton();
-            this.SinglePigRadio = new System.Windows.Forms.RadioButton();
-            this.ExitButton = new System.Windows.Forms.Button();
-            this.SelectDiceGameGroup.SuspendLayout();
+            this.selectDiceGameGroup = new System.Windows.Forms.GroupBox();
+            this.twoPigRadio = new System.Windows.Forms.RadioButton();
+            this.singlePigRadio = new System.Windows.Forms.RadioButton();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.selectDiceGameGroup.SuspendLayout();
             this.SuspendLayout();
             // 
-            // SelectDiceGameGroup
+            // selectDiceGameGroup
             // 
-            this.SelectDiceGameGroup.Controls.Add(this.TwoPigRadio);
-            this.SelectDiceGameGroup.Controls.Add(this.SinglePigRadio);
-            this.SelectDiceGameGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectDiceGameGroup.Location = new System.Drawing.Point(12, 21);
-            this.SelectDiceGameGroup.Name = "SelectDiceGameGroup";
-            this.SelectDiceGameGroup.Size = new System.Drawing.Size(200, 100);
-            this.SelectDiceGameGroup.TabIndex = 0;
-            this.SelectDiceGameGroup.TabStop = false;
-            this.SelectDiceGameGroup.Text = "Select which Pig to play";
+            this.selectDiceGameGroup.Controls.Add(this.twoPigRadio);
+            this.selectDiceGameGroup.Controls.Add(this.singlePigRadio);
+            this.selectDiceGameGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectDiceGameGroup.Location = new System.Drawing.Point(12, 21);
+            this.selectDiceGameGroup.Name = "selectDiceGameGroup";
+            this.selectDiceGameGroup.Size = new System.Drawing.Size(200, 100);
+            this.selectDiceGameGroup.TabIndex = 0;
+            this.selectDiceGameGroup.TabStop = false;
+            this.selectDiceGameGroup.Text = "Select which Pig to play";
             // 
-            // TwoPigRadio
+            // twoPigRadio
             // 
-            this.TwoPigRadio.AutoSize = true;
-            this.TwoPigRadio.Location = new System.Drawing.Point(7, 65);
-            this.TwoPigRadio.Name = "TwoPigRadio";
-            this.TwoPigRadio.Size = new System.Drawing.Size(101, 17);
-            this.TwoPigRadio.TabIndex = 1;
-            this.TwoPigRadio.Text = "Two Dice Pig";
-            this.TwoPigRadio.UseVisualStyleBackColor = true;
-            this.TwoPigRadio.CheckedChanged += new System.EventHandler(this.TwoPigRadio_CheckedChanged);
+            this.twoPigRadio.AutoSize = true;
+            this.twoPigRadio.Location = new System.Drawing.Point(7, 65);
+            this.twoPigRadio.Name = "twoPigRadio";
+            this.twoPigRadio.Size = new System.Drawing.Size(101, 17);
+            this.twoPigRadio.TabIndex = 1;
+            this.twoPigRadio.Text = "Two Dice Pig";
+            this.twoPigRadio.UseVisualStyleBackColor = true;
+            this.twoPigRadio.CheckedChanged += new System.EventHandler(this.TwoPigRadio_CheckedChanged);
             // 
-            // SinglePigRadio
+            // singlePigRadio
             // 
-            this.SinglePigRadio.AutoSize = true;
-            this.SinglePigRadio.Location = new System.Drawing.Point(7, 29);
-            this.SinglePigRadio.Name = "SinglePigRadio";
-            this.SinglePigRadio.Size = new System.Drawing.Size(105, 17);
-            this.SinglePigRadio.TabIndex = 0;
-            this.SinglePigRadio.Text = "Single Die Pig";
-            this.SinglePigRadio.UseVisualStyleBackColor = true;
-            this.SinglePigRadio.CheckedChanged += new System.EventHandler(this.SinglePigRadio_CheckedChanged);
+            this.singlePigRadio.AutoSize = true;
+            this.singlePigRadio.Location = new System.Drawing.Point(7, 29);
+            this.singlePigRadio.Name = "singlePigRadio";
+            this.singlePigRadio.Size = new System.Drawing.Size(105, 17);
+            this.singlePigRadio.TabIndex = 0;
+            this.singlePigRadio.Text = "Single Die Pig";
+            this.singlePigRadio.UseVisualStyleBackColor = true;
+            this.singlePigRadio.CheckedChanged += new System.EventHandler(this.SinglePigRadio_CheckedChanged);
             // 
-            // ExitButton
+            // exitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(69, 140);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(75, 23);
-            this.ExitButton.TabIndex = 1;
-            this.ExitButton.Text = "EXIT";
-            this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            this.exitButton.Location = new System.Drawing.Point(69, 140);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.TabIndex = 1;
+            this.exitButton.Text = "EXIT";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // DiceMenu
+            // diceMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(226, 187);
-            this.Controls.Add(this.ExitButton);
-            this.Controls.Add(this.SelectDiceGameGroup);
-            this.Name = "DiceMenu";
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.selectDiceGameGroup);
+            this.Name = "diceMenu";
             this.Text = "Dice Games";
-            this.SelectDiceGameGroup.ResumeLayout(false);
-            this.SelectDiceGameGroup.PerformLayout();
+            this.selectDiceGameGroup.ResumeLayout(false);
+            this.selectDiceGameGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox SelectDiceGameGroup;
-        private System.Windows.Forms.RadioButton TwoPigRadio;
-        private System.Windows.Forms.RadioButton SinglePigRadio;
-        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.GroupBox selectDiceGameGroup;
+        private System.Windows.Forms.RadioButton twoPigRadio;
+        private System.Windows.Forms.RadioButton singlePigRadio;
+        private System.Windows.Forms.Button exitButton;
     }
 }

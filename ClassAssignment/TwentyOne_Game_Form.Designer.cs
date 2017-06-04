@@ -23,43 +23,43 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.DealerTable = new System.Windows.Forms.TableLayoutPanel();
+            this.dealerTable = new System.Windows.Forms.TableLayoutPanel();
             this.playerTable = new System.Windows.Forms.TableLayoutPanel();
-            this.DealButton = new System.Windows.Forms.Button();
-            this.HitButton = new System.Windows.Forms.Button();
-            this.StandButton = new System.Windows.Forms.Button();
-            this.CancelGameButton = new System.Windows.Forms.Button();
+            this.dealButton = new System.Windows.Forms.Button();
+            this.hitButton = new System.Windows.Forms.Button();
+            this.standButton = new System.Windows.Forms.Button();
+            this.cancelGameButton = new System.Windows.Forms.Button();
             this.dealerBustedLabel = new System.Windows.Forms.Label();
-            this.DealerLabel = new System.Windows.Forms.Label();
+            this.dealerLabel = new System.Windows.Forms.Label();
             this.dealerPointsLabel = new System.Windows.Forms.Label();
-            this.DealerGamesWonLabel = new System.Windows.Forms.Label();
-            this.DealerGamesWonCountLabel = new System.Windows.Forms.Label();
+            this.dealerGamesWonLabel = new System.Windows.Forms.Label();
+            this.dealerGamesWonCountLabel = new System.Windows.Forms.Label();
             this.playerBustedLabel = new System.Windows.Forms.Label();
-            this.PlayerLabel = new System.Windows.Forms.Label();
+            this.playerLabel = new System.Windows.Forms.Label();
             this.playerPointsLabel = new System.Windows.Forms.Label();
-            this.PlayerGamesWonLabel = new System.Windows.Forms.Label();
-            this.PlayerGamesWonCountLabel = new System.Windows.Forms.Label();
-            this.AcesTextLabel = new System.Windows.Forms.Label();
-            this.AceCountLabel = new System.Windows.Forms.Label();
+            this.playerGamesWonLabel = new System.Windows.Forms.Label();
+            this.playerGamesWonCountLabel = new System.Windows.Forms.Label();
+            this.acesTextLabel = new System.Windows.Forms.Label();
+            this.aceCountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // DealerTable
+            // dealerTable
             // 
-            this.DealerTable.ColumnCount = 8;
-            this.DealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.DealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.DealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.DealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.DealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.DealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.DealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.DealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.DealerTable.Location = new System.Drawing.Point(12, 89);
-            this.DealerTable.Name = "DealerTable";
-            this.DealerTable.RowCount = 1;
-            this.DealerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.DealerTable.Size = new System.Drawing.Size(580, 98);
-            this.DealerTable.TabIndex = 0;
+            this.dealerTable.ColumnCount = 8;
+            this.dealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.dealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.dealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.dealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.dealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.dealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.dealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.dealerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.dealerTable.Location = new System.Drawing.Point(12, 89);
+            this.dealerTable.Name = "dealerTable";
+            this.dealerTable.RowCount = 1;
+            this.dealerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dealerTable.Size = new System.Drawing.Size(580, 98);
+            this.dealerTable.TabIndex = 0;
             // 
             // playerTable
             // 
@@ -79,47 +79,47 @@
             this.playerTable.Size = new System.Drawing.Size(580, 103);
             this.playerTable.TabIndex = 1;
             // 
-            // DealButton
+            // dealButton
             // 
-            this.DealButton.Location = new System.Drawing.Point(37, 373);
-            this.DealButton.Name = "DealButton";
-            this.DealButton.Size = new System.Drawing.Size(75, 23);
-            this.DealButton.TabIndex = 2;
-            this.DealButton.Text = "Deal";
-            this.DealButton.UseVisualStyleBackColor = true;
-            this.DealButton.Click += new System.EventHandler(this.DealButton_Click);
+            this.dealButton.Location = new System.Drawing.Point(37, 373);
+            this.dealButton.Name = "dealButton";
+            this.dealButton.Size = new System.Drawing.Size(75, 23);
+            this.dealButton.TabIndex = 2;
+            this.dealButton.Text = "Deal";
+            this.dealButton.UseVisualStyleBackColor = true;
+            this.dealButton.Click += new System.EventHandler(this.DealButton_Click);
             // 
-            // HitButton
+            // hitButton
             // 
-            this.HitButton.Enabled = false;
-            this.HitButton.Location = new System.Drawing.Point(134, 373);
-            this.HitButton.Name = "HitButton";
-            this.HitButton.Size = new System.Drawing.Size(75, 23);
-            this.HitButton.TabIndex = 3;
-            this.HitButton.Text = "Hit";
-            this.HitButton.UseVisualStyleBackColor = true;
-            this.HitButton.Click += new System.EventHandler(this.HitButton_Click);
+            this.hitButton.Enabled = false;
+            this.hitButton.Location = new System.Drawing.Point(134, 373);
+            this.hitButton.Name = "hitButton";
+            this.hitButton.Size = new System.Drawing.Size(75, 23);
+            this.hitButton.TabIndex = 3;
+            this.hitButton.Text = "Hit";
+            this.hitButton.UseVisualStyleBackColor = true;
+            this.hitButton.Click += new System.EventHandler(this.HitButton_Click);
             // 
-            // StandButton
+            // standButton
             // 
-            this.StandButton.Enabled = false;
-            this.StandButton.Location = new System.Drawing.Point(230, 373);
-            this.StandButton.Name = "StandButton";
-            this.StandButton.Size = new System.Drawing.Size(75, 23);
-            this.StandButton.TabIndex = 4;
-            this.StandButton.Text = "Stand";
-            this.StandButton.UseVisualStyleBackColor = true;
-            this.StandButton.Click += new System.EventHandler(this.StandButton_Click);
+            this.standButton.Enabled = false;
+            this.standButton.Location = new System.Drawing.Point(230, 373);
+            this.standButton.Name = "standButton";
+            this.standButton.Size = new System.Drawing.Size(75, 23);
+            this.standButton.TabIndex = 4;
+            this.standButton.Text = "Stand";
+            this.standButton.UseVisualStyleBackColor = true;
+            this.standButton.Click += new System.EventHandler(this.StandButton_Click);
             // 
-            // CancelGameButton
+            // cancelGameButton
             // 
-            this.CancelGameButton.Location = new System.Drawing.Point(345, 373);
-            this.CancelGameButton.Name = "CancelGameButton";
-            this.CancelGameButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelGameButton.TabIndex = 5;
-            this.CancelGameButton.Text = "Cancel";
-            this.CancelGameButton.UseVisualStyleBackColor = true;
-            this.CancelGameButton.Click += new System.EventHandler(this.CancelGameButton_Click);
+            this.cancelGameButton.Location = new System.Drawing.Point(345, 373);
+            this.cancelGameButton.Name = "cancelGameButton";
+            this.cancelGameButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelGameButton.TabIndex = 5;
+            this.cancelGameButton.Text = "Cancel";
+            this.cancelGameButton.UseVisualStyleBackColor = true;
+            this.cancelGameButton.Click += new System.EventHandler(this.CancelGameButton_Click);
             // 
             // dealerBustedLabel
             // 
@@ -134,15 +134,15 @@
             this.dealerBustedLabel.Text = "BUSTED";
             this.dealerBustedLabel.Visible = false;
             // 
-            // DealerLabel
+            // dealerLabel
             // 
-            this.DealerLabel.AutoSize = true;
-            this.DealerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DealerLabel.Location = new System.Drawing.Point(188, 31);
-            this.DealerLabel.Name = "DealerLabel";
-            this.DealerLabel.Size = new System.Drawing.Size(71, 24);
-            this.DealerLabel.TabIndex = 8;
-            this.DealerLabel.Text = "Dealer";
+            this.dealerLabel.AutoSize = true;
+            this.dealerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerLabel.Location = new System.Drawing.Point(188, 31);
+            this.dealerLabel.Name = "dealerLabel";
+            this.dealerLabel.Size = new System.Drawing.Size(71, 24);
+            this.dealerLabel.TabIndex = 8;
+            this.dealerLabel.Text = "Dealer";
             // 
             // dealerPointsLabel
             // 
@@ -155,24 +155,24 @@
             this.dealerPointsLabel.Text = "POINTS";
             this.dealerPointsLabel.Visible = false;
             // 
-            // DealerGamesWonLabel
+            // dealerGamesWonLabel
             // 
-            this.DealerGamesWonLabel.AutoSize = true;
-            this.DealerGamesWonLabel.Location = new System.Drawing.Point(399, 39);
-            this.DealerGamesWonLabel.Name = "DealerGamesWonLabel";
-            this.DealerGamesWonLabel.Size = new System.Drawing.Size(63, 13);
-            this.DealerGamesWonLabel.TabIndex = 10;
-            this.DealerGamesWonLabel.Text = "Games won";
+            this.dealerGamesWonLabel.AutoSize = true;
+            this.dealerGamesWonLabel.Location = new System.Drawing.Point(399, 39);
+            this.dealerGamesWonLabel.Name = "dealerGamesWonLabel";
+            this.dealerGamesWonLabel.Size = new System.Drawing.Size(63, 13);
+            this.dealerGamesWonLabel.TabIndex = 10;
+            this.dealerGamesWonLabel.Text = "Games won";
             // 
-            // DealerGamesWonCountLabel
+            // dealerGamesWonCountLabel
             // 
-            this.DealerGamesWonCountLabel.AutoSize = true;
-            this.DealerGamesWonCountLabel.BackColor = System.Drawing.Color.White;
-            this.DealerGamesWonCountLabel.Location = new System.Drawing.Point(468, 39);
-            this.DealerGamesWonCountLabel.Name = "DealerGamesWonCountLabel";
-            this.DealerGamesWonCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.DealerGamesWonCountLabel.TabIndex = 11;
-            this.DealerGamesWonCountLabel.Text = "0";
+            this.dealerGamesWonCountLabel.AutoSize = true;
+            this.dealerGamesWonCountLabel.BackColor = System.Drawing.Color.White;
+            this.dealerGamesWonCountLabel.Location = new System.Drawing.Point(468, 39);
+            this.dealerGamesWonCountLabel.Name = "dealerGamesWonCountLabel";
+            this.dealerGamesWonCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.dealerGamesWonCountLabel.TabIndex = 11;
+            this.dealerGamesWonCountLabel.Text = "0";
             // 
             // playerBustedLabel
             // 
@@ -187,15 +187,15 @@
             this.playerBustedLabel.Text = "BUSTED";
             this.playerBustedLabel.Visible = false;
             // 
-            // PlayerLabel
+            // playerLabel
             // 
-            this.PlayerLabel.AutoSize = true;
-            this.PlayerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayerLabel.Location = new System.Drawing.Point(191, 325);
-            this.PlayerLabel.Name = "PlayerLabel";
-            this.PlayerLabel.Size = new System.Drawing.Size(68, 24);
-            this.PlayerLabel.TabIndex = 13;
-            this.PlayerLabel.Text = "Player";
+            this.playerLabel.AutoSize = true;
+            this.playerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerLabel.Location = new System.Drawing.Point(191, 325);
+            this.playerLabel.Name = "playerLabel";
+            this.playerLabel.Size = new System.Drawing.Size(68, 24);
+            this.playerLabel.TabIndex = 13;
+            this.playerLabel.Text = "Player";
             // 
             // playerPointsLabel
             // 
@@ -208,67 +208,67 @@
             this.playerPointsLabel.Text = "POINTS";
             this.playerPointsLabel.Visible = false;
             // 
-            // PlayerGamesWonLabel
+            // playerGamesWonLabel
             // 
-            this.PlayerGamesWonLabel.AutoSize = true;
-            this.PlayerGamesWonLabel.Location = new System.Drawing.Point(399, 333);
-            this.PlayerGamesWonLabel.Name = "PlayerGamesWonLabel";
-            this.PlayerGamesWonLabel.Size = new System.Drawing.Size(63, 13);
-            this.PlayerGamesWonLabel.TabIndex = 15;
-            this.PlayerGamesWonLabel.Text = "Games won";
+            this.playerGamesWonLabel.AutoSize = true;
+            this.playerGamesWonLabel.Location = new System.Drawing.Point(399, 333);
+            this.playerGamesWonLabel.Name = "playerGamesWonLabel";
+            this.playerGamesWonLabel.Size = new System.Drawing.Size(63, 13);
+            this.playerGamesWonLabel.TabIndex = 15;
+            this.playerGamesWonLabel.Text = "Games won";
             // 
-            // PlayerGamesWonCountLabel
+            // playerGamesWonCountLabel
             // 
-            this.PlayerGamesWonCountLabel.AutoSize = true;
-            this.PlayerGamesWonCountLabel.BackColor = System.Drawing.Color.White;
-            this.PlayerGamesWonCountLabel.Location = new System.Drawing.Point(468, 333);
-            this.PlayerGamesWonCountLabel.Name = "PlayerGamesWonCountLabel";
-            this.PlayerGamesWonCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.PlayerGamesWonCountLabel.TabIndex = 16;
-            this.PlayerGamesWonCountLabel.Text = "0";
+            this.playerGamesWonCountLabel.AutoSize = true;
+            this.playerGamesWonCountLabel.BackColor = System.Drawing.Color.White;
+            this.playerGamesWonCountLabel.Location = new System.Drawing.Point(468, 333);
+            this.playerGamesWonCountLabel.Name = "playerGamesWonCountLabel";
+            this.playerGamesWonCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.playerGamesWonCountLabel.TabIndex = 16;
+            this.playerGamesWonCountLabel.Text = "0";
             // 
-            // AcesTextLabel
+            // acesTextLabel
             // 
-            this.AcesTextLabel.AutoSize = true;
-            this.AcesTextLabel.Location = new System.Drawing.Point(214, 353);
-            this.AcesTextLabel.Name = "AcesTextLabel";
-            this.AcesTextLabel.Size = new System.Drawing.Size(91, 13);
-            this.AcesTextLabel.TabIndex = 17;
-            this.AcesTextLabel.Text = "Aces with value 1";
+            this.acesTextLabel.AutoSize = true;
+            this.acesTextLabel.Location = new System.Drawing.Point(214, 353);
+            this.acesTextLabel.Name = "acesTextLabel";
+            this.acesTextLabel.Size = new System.Drawing.Size(91, 13);
+            this.acesTextLabel.TabIndex = 17;
+            this.acesTextLabel.Text = "Aces with value 1";
             // 
-            // AceCountLabel
+            // aceCountLabel
             // 
-            this.AceCountLabel.AutoSize = true;
-            this.AceCountLabel.BackColor = System.Drawing.Color.White;
-            this.AceCountLabel.Location = new System.Drawing.Point(196, 353);
-            this.AceCountLabel.Name = "AceCountLabel";
-            this.AceCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.AceCountLabel.TabIndex = 18;
-            this.AceCountLabel.Text = "0";
+            this.aceCountLabel.AutoSize = true;
+            this.aceCountLabel.BackColor = System.Drawing.Color.White;
+            this.aceCountLabel.Location = new System.Drawing.Point(196, 353);
+            this.aceCountLabel.Name = "aceCountLabel";
+            this.aceCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.aceCountLabel.TabIndex = 18;
+            this.aceCountLabel.Text = "0";
             // 
             // TwentyOne_Game_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 421);
-            this.Controls.Add(this.AceCountLabel);
-            this.Controls.Add(this.AcesTextLabel);
-            this.Controls.Add(this.PlayerGamesWonCountLabel);
-            this.Controls.Add(this.PlayerGamesWonLabel);
+            this.Controls.Add(this.aceCountLabel);
+            this.Controls.Add(this.acesTextLabel);
+            this.Controls.Add(this.playerGamesWonCountLabel);
+            this.Controls.Add(this.playerGamesWonLabel);
             this.Controls.Add(this.playerPointsLabel);
-            this.Controls.Add(this.PlayerLabel);
+            this.Controls.Add(this.playerLabel);
             this.Controls.Add(this.playerBustedLabel);
-            this.Controls.Add(this.DealerGamesWonCountLabel);
-            this.Controls.Add(this.DealerGamesWonLabel);
+            this.Controls.Add(this.dealerGamesWonCountLabel);
+            this.Controls.Add(this.dealerGamesWonLabel);
             this.Controls.Add(this.dealerPointsLabel);
-            this.Controls.Add(this.DealerLabel);
+            this.Controls.Add(this.dealerLabel);
             this.Controls.Add(this.dealerBustedLabel);
-            this.Controls.Add(this.CancelGameButton);
-            this.Controls.Add(this.StandButton);
-            this.Controls.Add(this.HitButton);
-            this.Controls.Add(this.DealButton);
+            this.Controls.Add(this.cancelGameButton);
+            this.Controls.Add(this.standButton);
+            this.Controls.Add(this.hitButton);
+            this.Controls.Add(this.dealButton);
             this.Controls.Add(this.playerTable);
-            this.Controls.Add(this.DealerTable);
+            this.Controls.Add(this.dealerTable);
             this.Name = "TwentyOne_Game_Form";
             this.Text = "Twenty One Game";
             this.ResumeLayout(false);
@@ -278,23 +278,23 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel DealerTable;
+        private System.Windows.Forms.TableLayoutPanel dealerTable;
         private System.Windows.Forms.TableLayoutPanel playerTable;
-        private System.Windows.Forms.Button DealButton;
-        private System.Windows.Forms.Button HitButton;
-        private System.Windows.Forms.Button StandButton;
-        private System.Windows.Forms.Button CancelGameButton;
+        private System.Windows.Forms.Button dealButton;
+        private System.Windows.Forms.Button hitButton;
+        private System.Windows.Forms.Button standButton;
+        private System.Windows.Forms.Button cancelGameButton;
         private System.Windows.Forms.Label dealerBustedLabel;
-        private System.Windows.Forms.Label DealerLabel;
+        private System.Windows.Forms.Label dealerLabel;
         private System.Windows.Forms.Label dealerPointsLabel;
-        private System.Windows.Forms.Label DealerGamesWonLabel;
-        private System.Windows.Forms.Label DealerGamesWonCountLabel;
+        private System.Windows.Forms.Label dealerGamesWonLabel;
+        private System.Windows.Forms.Label dealerGamesWonCountLabel;
         private System.Windows.Forms.Label playerBustedLabel;
-        private System.Windows.Forms.Label PlayerLabel;
+        private System.Windows.Forms.Label playerLabel;
         private System.Windows.Forms.Label playerPointsLabel;
-        private System.Windows.Forms.Label PlayerGamesWonLabel;
-        private System.Windows.Forms.Label PlayerGamesWonCountLabel;
-        private System.Windows.Forms.Label AcesTextLabel;
-        private System.Windows.Forms.Label AceCountLabel;
+        private System.Windows.Forms.Label playerGamesWonLabel;
+        private System.Windows.Forms.Label playerGamesWonCountLabel;
+        private System.Windows.Forms.Label acesTextLabel;
+        private System.Windows.Forms.Label aceCountLabel;
     }
 }
