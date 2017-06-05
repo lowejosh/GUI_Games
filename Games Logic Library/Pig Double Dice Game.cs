@@ -130,13 +130,15 @@ namespace Games_Logic_Library {
         /// </summary>
         /// <param name="playerName">string: Input string paramater to set the currentPlayer value to</param>
         public static void SetCurrentPlayer(string playerName) {
+            // Reset current turn points
+            ResetCurrentTurnPoints();
             currentPlayer = playerName;
         }// End SetCurrentPlayer
 
         /// <summary>
         /// Resets the current turn points
         /// </summary>
-        public static void ResetCurrentTurnPoints() {
+        private static void ResetCurrentTurnPoints() {
             currentTurnPoints = 0;
         }// End ResetCurrentTurnPoints
     }

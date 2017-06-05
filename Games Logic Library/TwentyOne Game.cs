@@ -21,7 +21,7 @@ namespace Games_Logic_Library {
         private static int[] totalPoints = new int[] { 0, 0 };
         private static int[] numOfGamesWon = new int[] { 0, 0 };
         private static int numOfUserAcesWithValueOne;
-        
+
         /// <summary>
         /// Initializes the class variables and shuffles the card pile at the start of the game
         /// </summary>
@@ -40,7 +40,7 @@ namespace Games_Logic_Library {
 
             // Reset ace counter
             numOfUserAcesWithValueOne = 0;
-        }
+        }// End SetUpGame
 
         /// <summary>
         /// Deals one card from the deck to the hand of "who" and returns that card
@@ -58,7 +58,7 @@ namespace Games_Logic_Library {
             Card c = cardPile.DealOneCard();
             hands[who].Add(c);
             return c;
-        }
+        }// End DealOneCardTo
 
         /// <summary>
         /// Adds the face values of all cards in the hand of "who" and returns that total which is adjusted if the "who" is the player and has one or more aces values as one
@@ -98,7 +98,7 @@ namespace Games_Logic_Library {
             
             // Return value for evaluation
             return total;
-        }
+        }// End CalculateHandTotal
 
         /// <summary>
         /// Plays a turn for the dealer
@@ -119,7 +119,7 @@ namespace Games_Logic_Library {
             } else if (totalPoints[1] < totalPoints[0] && totalPoints[0] < 22 && totalPoints[1] < 22) {
                 numOfGamesWon[0]++;
             }
-        }
+        }// End PlayForDealer
 
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace Games_Logic_Library {
         /// <returns>Hand[]: the hand of the player</returns>
         public static Hand GetHand(int who) {
             return hands[who];
-        }
+        }// End GetHand
 
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Games_Logic_Library {
         /// <returns>int[]: total points of the player</returns>
         public static int GetTotalPoints(int who) {
             return totalPoints[who];
-        }
+        }// End GetTotalPoints
 
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace Games_Logic_Library {
         /// <returns>int[]: number of games won of the player</returns>
         public static int GetNumOfGamesWon(int who) {
             return numOfGamesWon[who];
-        }
+        }// End GetNumOfGamesWon
 
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace Games_Logic_Library {
         /// <returns>int: number of aces valued at one</returns>
         public static int GetNumOfUserAcesWithValueOne() {
             return numOfUserAcesWithValueOne;
-        }
+        }// End GetNumOfAcesWithValueOne
 
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace Games_Logic_Library {
         /// </summary>
         public static void IncrementNumOfUserAcesWithValueOne() {
             numOfUserAcesWithValueOne++;
-        }
+        }// End IncrementNumOfUserAcesWithValueOne
 
 
         /// <summary>
@@ -177,6 +177,6 @@ namespace Games_Logic_Library {
             totalPoints[1] = 0;
             numOfGamesWon[0] = 0;
             numOfGamesWon[1] = 0;
-        }
+        }// End ResetTotals
     }
 }

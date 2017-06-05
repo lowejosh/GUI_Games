@@ -67,7 +67,7 @@ namespace Games_Logic_Library {
                     tableauPiles[i].Add(drawPile.DealOneCard());
                 }
             }
-        }
+        }// End SetUpGame
 
 
         /// <summary>
@@ -83,11 +83,75 @@ namespace Games_Logic_Library {
 
             // Clears the selection
             ClearSelected();
-        }
+        }// End MoveCardTo
 
 
         /// <summary>
-        /// Checks whether the move chosen is valid
+        /// Moves chosen card to selected suit card pile
+        /// </summary>
+        /// <param name="cp">CardPile: Chosen card pile</param>
+        public static void MoveCardToSuit(CardPile cp) {
+            // Move the selected card to the card pile chosen
+            cp.Add(selectedHand.GetCard(selectedHand.GetCount() - 1));
+
+            // Remove the top card in the selected hand
+            selectedHand.RemoveAt(selectedHand.GetCount() - 1);
+        }// End NovecardToSuit
+        
+
+        /// <summary>
+        /// Validates whether the move to a suit is valid
+        /// </summary>
+        /// <param name="clickedPile"></param>
+        /// <returns>bool: true if the move is valid</returns>
+        public static bool ValidateSuitMove(CardPile clickedPile) {
+            // Set the selected card
+            Card c = selectedHand.GetCard(selectedHand.GetCount() - 1);
+
+            // If it is the first card to the suit
+            if (clickedPile.GetCount() == 0) {
+                if (c.GetFaceValue() == FaceValue.Ace) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                // If they are opposite colours
+                if (c.GetColour() != clickedPile.GetLastCardInPile().GetColour()) {
+                    // If the value of the face is one lmore 
+                    if (CalculateValue(c.GetFaceValue()) == CalculateValue(clickedPile.GetLastCardInPile().GetFaceValue()) + 1) {
+                        return true;
+                    } else {
+                        return false;
+                    } 
+                } else {
+                    return false;
+                }
+            }
+
+
+        }// End ValidateSuitMove
+        
+
+        /// <summary>
+        /// Calculates the number value of the inputted face value
+        /// </summary>
+        /// <param name="fv">FaceValue: Facevalue of the card</param>
+        /// <returns>int: Gameplay value of inputted face value</returns>
+        public static int CalculateValue(FaceValue fv) {
+            if (fv == FaceValue.Queen || fv == FaceValue.King || fv == FaceValue.Jack) {
+                return 10;
+            } else if (fv == FaceValue.Ace) {
+                return 1;
+            } else {
+                return (int)fv + 2;
+            }
+        }
+
+
+
+        /// <summary>
+        /// Checks whether the move from one hand to another is valid
         /// </summary>
         /// <param name="h">Hand: The hand that the selected card is attempting to move to</param>
         /// <returns>bool: True if the move is valid</returns>
@@ -95,11 +159,15 @@ namespace Games_Logic_Library {
             Card sc = selectedHand.GetCard(selectedHand.GetCount() - 1);
             Card c = h.GetCard(h.GetCount() - 1);
             if (sc.GetColour() != c.GetColour()) {
-                return true;
+                if (CalculateValue(c.GetFaceValue()) == CalculateValue(sc.GetFaceValue()) + 1) {      
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
                 return false;
             }
-        }
+        }// End ValidMove
 
 
         /// <summary>
@@ -110,7 +178,7 @@ namespace Games_Logic_Library {
             foreach (Card c in cards) {
                 drawPile.Add(c);
             }
-        }
+        }// End FlipDiscardPile
 
 
         /// <summary>
@@ -121,7 +189,19 @@ namespace Games_Logic_Library {
             Card c = drawPile.DealOneCard();
             discardPile.Add(c);
             return c;
-        }
+        }// End DrawOnecard
+
+
+        /// <summary>
+        /// Creates a single card hand for use in other methods
+        /// </summary>
+        /// <param name="c">Card: Card to be made into a hand</param>
+        /// <returns>Hand: Hand made from input of card</returns>
+        public static Hand CreateHand(Card c) {
+            Hand h = new Hand();
+            h.Add(c);
+            return h;
+        }// End CreateHand
 
 
         /// <summary>
@@ -131,7 +211,7 @@ namespace Games_Logic_Library {
         /// <returns>Hand: hand respective to the table number</returns>
         public static Hand GetTableauPiles(int tableNo) {
             return tableauPiles[tableNo];
-        }
+        }// End GetTableauPiles
 
 
         /// <summary>
@@ -141,7 +221,7 @@ namespace Games_Logic_Library {
         /// <returns>CardPile: the specified suit pile</returns>
         public static CardPile GetSuitPiles(int suitNo) {
             return suitPiles[suitNo];
-        }
+        }// End GetSuitPiles
 
 
         /// <summary>
@@ -150,7 +230,7 @@ namespace Games_Logic_Library {
         /// <returns>CardPile: the discard pile</returns>
         public static CardPile GetDiscardPile() {
             return discardPile;
-        }
+        }// End GetDiscardPile
         
 
         /// <summary>
@@ -159,7 +239,7 @@ namespace Games_Logic_Library {
         /// <returns>CardPile: the draw pile</returns>
         public static CardPile GetDrawPile() {
             return drawPile;
-        }
+        }// End GetDrawPile
 
 
         /// <summary>
@@ -170,7 +250,7 @@ namespace Games_Logic_Library {
         public static void SetSelected(Hand h, int selectedPos) {
             selectedHand = h;
             selectedHandPos = selectedPos;
-        }
+        }// End SetSelected
         
 
         /// <summary>
@@ -179,7 +259,7 @@ namespace Games_Logic_Library {
         /// <returns>int: position of the selected hand</returns>
         public static int GetSelectedPos() {
             return selectedHandPos;
-        }
+        }// End GetSelectedPos
 
 
         /// <summary>
@@ -187,7 +267,7 @@ namespace Games_Logic_Library {
         /// </summary>
         public static void ClearSelected() {
             selectedHand = null;
-        }
+        }// End ClearSelected
 
 
         /// <summary>
@@ -196,7 +276,7 @@ namespace Games_Logic_Library {
         /// <returns>Card: the selected card</returns>
         public static Hand GetSelected() {
             return selectedHand;
-        }
+        }// End GetSelected
 
 
         /// <summary>
@@ -206,7 +286,7 @@ namespace Games_Logic_Library {
         /// <returns>int: number of cards visible at that position</returns>
         public static int GetNumberOfCardsVisible(int pos) {
             return numberOfCardsVisible[pos];
-        }
+        }// End GetNumberOfCardsVisible
 
         /// <summary>
         /// Increments the number of cards visible for the specified table position
@@ -214,7 +294,7 @@ namespace Games_Logic_Library {
         /// <param name="pos">int: position of the table</param>
         public static void IncrementNumberOfCardsVisible(int pos) {
             numberOfCardsVisible[pos]++;
-        }
+        }// End IncrementNumberOfCardsVisible
 
 
         /// <summary>
@@ -223,6 +303,6 @@ namespace Games_Logic_Library {
         /// <param name="pos"></param>
         public static void DecrementNumberOfCardsVisible(int pos) {
             numberOfCardsVisible[pos]--;
-        }
+        }// End DecrementNumberOfCardsVisible
     }
 }

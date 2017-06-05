@@ -245,6 +245,7 @@
             this.discardPilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.discardPilePicture.TabIndex = 8;
             this.discardPilePicture.TabStop = false;
+            this.discardPilePicture.Click += new System.EventHandler(this.discardPilePicture_Click);
             // 
             // suitPilePicture2
             // 
@@ -255,6 +256,7 @@
             this.suitPilePicture2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.suitPilePicture2.TabIndex = 10;
             this.suitPilePicture2.TabStop = false;
+            this.suitPilePicture2.Click += new System.EventHandler(this.suitPilePicture2_Click);
             // 
             // suitPilePicture1
             // 
@@ -265,6 +267,7 @@
             this.suitPilePicture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.suitPilePicture1.TabIndex = 9;
             this.suitPilePicture1.TabStop = false;
+            this.suitPilePicture1.Click += new System.EventHandler(this.suitPilePicture1_Click);
             // 
             // suitPilePicture4
             // 
@@ -275,6 +278,7 @@
             this.suitPilePicture4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.suitPilePicture4.TabIndex = 12;
             this.suitPilePicture4.TabStop = false;
+            this.suitPilePicture4.Click += new System.EventHandler(this.suitPilePicture4_Click);
             // 
             // suitPilePicture3
             // 
@@ -285,6 +289,7 @@
             this.suitPilePicture3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.suitPilePicture3.TabIndex = 11;
             this.suitPilePicture3.TabStop = false;
+            this.suitPilePicture3.Click += new System.EventHandler(this.suitPilePicture3_Click);
             // 
             // Solitaire_Game_Form
             // 

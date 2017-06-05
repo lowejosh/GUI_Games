@@ -55,7 +55,6 @@ namespace ClassAssignment {
 
 
         private void HoldButton_Click(object sender, EventArgs e) {
-            Pig_Single_Die_Game.ResetCurrentTurnPoints();                                       // Reset the points for the turn
             Pig_Single_Die_Game.SetCurrentPlayer(Pig_Single_Die_Game.GetNextPlayersName());     // Move to next player
             holdButton.Enabled = false;
             UpdateFormInfo();

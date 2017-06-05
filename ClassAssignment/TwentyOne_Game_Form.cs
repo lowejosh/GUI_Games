@@ -21,6 +21,11 @@ namespace ClassAssignment {
         }
         
 
+        /// <summary>
+        /// Docks the table layouts with images of the cards respective to each hand
+        /// </summary>
+        /// <param name="hand">Hand: the hand for the table</param>
+        /// <param name="tableLayoutPanel">TalbeLayoutPanel: the table to dock the images on</param>
         private void DisplayGuiHand(Hand hand, TableLayoutPanel tableLayoutPanel) {
             tableLayoutPanel.Controls.Clear(); // Remove any cards already being shown.
             foreach (Card card in hand) {
@@ -37,6 +42,9 @@ namespace ClassAssignment {
         }// End DisplayGuiHand
 
 
+        /// <summary>
+        /// Updates the GUI labels and displays the hands onto the tables
+        /// </summary>
         private void UpdateGUI() {
             // Update games won count labels
             playerGamesWonCountLabel.Text = TwentyOne_Game.GetNumOfGamesWon(0).ToString();

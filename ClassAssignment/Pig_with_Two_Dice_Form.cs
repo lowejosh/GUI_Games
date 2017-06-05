@@ -90,7 +90,6 @@ namespace ClassAssignment {
 
 
         private void HoldButton_Click(object sender, EventArgs e) {
-            Pig_Double_Dice_Game.ResetCurrentTurnPoints();                                       // Reset the points for the turn
             Pig_Double_Dice_Game.SetCurrentPlayer(Pig_Double_Dice_Game.GetNextPlayersName());     // Move to next player
             holdButton.Enabled = false;
             UpdateFormInfo();

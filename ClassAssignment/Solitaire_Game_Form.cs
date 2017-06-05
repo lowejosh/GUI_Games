@@ -54,7 +54,6 @@ namespace ClassAssignment {
 
         private void TryToPlayCard(Hand clickedHand) {
             //Clicked card: card clickedCard = clickedHand.GetCard(clickedHand.GetCount() - 1);
-
             // If selected hand is null
             if (Solitaire_Game.GetSelected() == null) {
                 // Set the clicked hand as selected
@@ -64,25 +63,43 @@ namespace ClassAssignment {
                 if (Solitaire_Game.GetSelected().GetCount() != 0) {
                     // Check if the move is valid
                     if (Solitaire_Game.ValidMove(clickedHand)) {
+                        // Increment the amount of cards visible
                         Solitaire_Game.IncrementNumberOfCardsVisible(selectedPos);
+                        // Move the card to the new hand
                         Solitaire_Game.MoveCardTo(clickedHand);
-                        // If the initially selected hand already has multiple cards visible, decrement it 
-                        if (Solitaire_Game.GetNumberOfCardsVisible(Solitaire_Game.GetSelectedPos()) > 1) {
-                            Solitaire_Game.DecrementNumberOfCardsVisible(Solitaire_Game.GetSelectedPos());
+                        // If the selected position isn't the discard pile
+                        if (Solitaire_Game.GetSelectedPos() < 8) {
+                            // If the initially selected hand already has multiple cards visible, decrement it 
+                            Console.WriteLine("selectedPos = " + selectedPos);
+                            if (Solitaire_Game.GetNumberOfCardsVisible(Solitaire_Game.GetSelectedPos()) > 1) {
+                                Solitaire_Game.DecrementNumberOfCardsVisible(Solitaire_Game.GetSelectedPos());
+                            }
                         }
                         // Update the GUI
                         UpdateGUI();
+                        UpdateCardPileGUI();
+                        UpdateSuitPileGUI();
                     } else {
+                        // If the move is invalid
                         MessageBox.Show("Move not allowed - Cannot place card onto this card");
-                        Solitaire_Game.ClearSelected();
+                        if (Solitaire_Game.GetSelectedPos() == 8) {
+                            // Put the cards back in the discard pile
+                            for (int i = 0; i < clickedHand.GetCount(); i++) {
+                                Solitaire_Game.GetDiscardPile().Add(clickedHand.GetCard(i));
+                                clickedHand.RemoveAt(i);
+                            }
+                        }
+                        UpdateCardPileGUI();
+                    Solitaire_Game.ClearSelected();
                     }
                 }
             }
-
-
         }
 
         private void drawPilePicture_Click(object sender, EventArgs e) {
+            // Clear any selected cards for less confusion
+            Solitaire_Game.ClearSelected();
+
             // If there are cards in the draw pile
             if (Solitaire_Game.GetDrawPile().GetCount() != 0) {
                 // Draw a card
@@ -118,8 +135,19 @@ namespace ClassAssignment {
             if (Solitaire_Game.GetDiscardPile().GetCount() != 0) {
                 // Set the picturebox to the last card in the pile
                 discardPilePicture.Image = Images.GetCardImage(Solitaire_Game.GetDiscardPile().GetLastCardInPile());
+            } else {
+                discardPilePicture.Image = null;
             }
+        }// End UpdateCardPileGUI
 
+        private void UpdateSuitPileGUI() {
+            for (int i = 0; i < Solitaire_Game.NUM_OF_SUIT_PILES; i++) {
+                if (Solitaire_Game.GetSuitPiles(i).GetCount() != 0) {
+                    suitPiles[i].Image = Images.GetCardImage(Solitaire_Game.GetSuitPiles(i).GetLastCardInPile());
+                } else {
+                    suitPiles[i].Image = null;
+                }
+            }
         }
 
 
@@ -138,7 +166,6 @@ namespace ClassAssignment {
                 pictureBox.Margin = new Padding(0);
                 // If the card if the last card of the hand
                 if (cardCount >= hand.GetCount() - Solitaire_Game.GetNumberOfCardsVisible(tablePos)) {
-                    Console.WriteLine(tablePos + " | " + Solitaire_Game.GetNumberOfCardsVisible(tablePos));
                     // Show the card face up
                     pictureBox.Image = Images.GetCardImage(card);
                     // Set event-handler for click on this PictureBox
@@ -153,6 +180,258 @@ namespace ClassAssignment {
                 // Add the PictureBox object to the tableLayoutPanel.
                 tableLayoutPanel.Controls.Add(pictureBox);
                 cardCount++;
+            }
+        }
+
+        private void suitPilePicture1_Click(object sender, EventArgs e) {
+            if (Solitaire_Game.GetSelected() != null) {
+                // Set clicked hand
+                CardPile clickedPile = Solitaire_Game.GetSuitPiles(0);
+
+                // If selected hand isn't empty
+                if (Solitaire_Game.GetSelected().GetCount() != 0) {
+                    // Check if the move is valid
+                    if (Solitaire_Game.ValidateSuitMove(clickedPile)) {
+                        Solitaire_Game.MoveCardToSuit(clickedPile);
+                        // If the selected position isn't the discard pile
+                        if (Solitaire_Game.GetSelectedPos() < 8) {
+                            // If the initially selected hand already has multiple cards visible, decrement it 
+                            if (Solitaire_Game.GetNumberOfCardsVisible(Solitaire_Game.GetSelectedPos()) > 1) {
+                                Solitaire_Game.DecrementNumberOfCardsVisible(Solitaire_Game.GetSelectedPos());
+                            }
+                        }
+                        // Update the GUI
+                        UpdateGUI();
+                        UpdateSuitPileGUI();
+                    } else {
+                        MessageBox.Show("Move not allowed - Cannot place this card onto this pile");
+                        Solitaire_Game.MoveCardToSuit(clickedPile);
+                        if (Solitaire_Game.GetSelectedPos() == 8) {
+                            // Put the cards back in the discard pile
+                            // Store pile so we can remove the last card
+                            Hand temp = new Hand();
+                            for (int i = 0; i < clickedPile.GetCount() - 1; i++) {
+                                temp.Add(clickedPile.DealOneCard());
+                            }
+
+                            // Remove the last card 
+                            Card c = clickedPile.DealOneCard();
+
+                            // Add cards back into the discard pile
+                            for (int i = 0; i < temp.GetCount(); i++) {
+                                clickedPile.Add(temp.GetCard(i));
+                                temp.RemoveAt(i);
+                            }
+
+                            // Move card to another temporary hand
+                            Hand clickedHand = Solitaire_Game.CreateHand(c);
+
+                            Solitaire_Game.GetDiscardPile().Add(c);
+                        }
+                        UpdateCardPileGUI();
+                        Solitaire_Game.ClearSelected();
+                    }
+                    Solitaire_Game.ClearSelected();
+                }
+            }
+        }
+
+        private void suitPilePicture2_Click(object sender, EventArgs e) {
+            if (Solitaire_Game.GetSelected() != null) {
+                // Set clicked hand
+                CardPile clickedPile = Solitaire_Game.GetSuitPiles(1);
+
+                // If selected hand isn't empty
+                if (Solitaire_Game.GetSelected().GetCount() != 0) {
+                    // Check if the move is valid
+                    if (Solitaire_Game.ValidateSuitMove(clickedPile)) {
+                        Solitaire_Game.MoveCardToSuit(clickedPile);
+                        // If the selected position isn't the discard pile
+                        if (Solitaire_Game.GetSelectedPos() < 8) {
+                            // If the initially selected hand already has multiple cards visible, decrement it 
+                            if (Solitaire_Game.GetNumberOfCardsVisible(Solitaire_Game.GetSelectedPos()) > 1) {
+                                Solitaire_Game.DecrementNumberOfCardsVisible(Solitaire_Game.GetSelectedPos());
+                            }
+                        }
+                        // Update the GUI
+                        UpdateGUI();
+                        UpdateSuitPileGUI();
+                    } else {
+                        MessageBox.Show("Move not allowed - Cannot place this card onto this pile");
+                        Solitaire_Game.MoveCardToSuit(clickedPile);
+                        if (Solitaire_Game.GetSelectedPos() == 8) {
+                            // Put the cards back in the discard pile
+                            // Store pile so we can remove the last card
+                            Hand temp = new Hand();
+                            for (int i = 0; i < clickedPile.GetCount() - 1; i++) {
+                                temp.Add(clickedPile.DealOneCard());
+                            }
+
+                            // Remove the last card 
+                            Card c = clickedPile.DealOneCard();
+
+                            // Add cards back into the discard pile
+                            for (int i = 0; i < temp.GetCount(); i++) {
+                                clickedPile.Add(temp.GetCard(i));
+                                temp.RemoveAt(i);
+                            }
+
+                            // Move card to another temporary hand
+                            Hand clickedHand = Solitaire_Game.CreateHand(c);
+
+                            Solitaire_Game.GetDiscardPile().Add(c);
+                        }
+                        UpdateCardPileGUI();
+                        Solitaire_Game.ClearSelected();
+                    }
+                    Solitaire_Game.ClearSelected();
+                }
+            }
+        }
+
+        private void suitPilePicture3_Click(object sender, EventArgs e) {
+            if (Solitaire_Game.GetSelected() != null) {
+                // Set clicked hand
+                CardPile clickedPile = Solitaire_Game.GetSuitPiles(2);
+
+                // If selected hand isn't empty
+                if (Solitaire_Game.GetSelected().GetCount() != 0) {
+                    // Check if the move is valid
+                    if (Solitaire_Game.ValidateSuitMove(clickedPile)) {
+                        Solitaire_Game.MoveCardToSuit(clickedPile);
+                        // If the selected position isn't the discard pile
+                        if (Solitaire_Game.GetSelectedPos() < 8) {
+                            // If the initially selected hand already has multiple cards visible, decrement it 
+                            if (Solitaire_Game.GetNumberOfCardsVisible(Solitaire_Game.GetSelectedPos()) > 1) {
+                                Solitaire_Game.DecrementNumberOfCardsVisible(Solitaire_Game.GetSelectedPos());
+                            }
+                        }
+                        // Update the GUI
+                        UpdateGUI();
+                        UpdateSuitPileGUI();
+                    } else {
+                        MessageBox.Show("Move not allowed - Cannot place this card onto this pile");
+                        Solitaire_Game.MoveCardToSuit(clickedPile);
+                        if (Solitaire_Game.GetSelectedPos() == 8) {
+                            // Put the cards back in the discard pile
+                            // Store pile so we can remove the last card
+                            Hand temp = new Hand();
+                            for (int i = 0; i < clickedPile.GetCount() - 1; i++) {
+                                temp.Add(clickedPile.DealOneCard());
+                            }
+
+                            // Remove the last card 
+                            Card c = clickedPile.DealOneCard();
+
+                            // Add cards back into the discard pile
+                            for (int i = 0; i < temp.GetCount(); i++) {
+                                clickedPile.Add(temp.GetCard(i));
+                                temp.RemoveAt(i);
+                            }
+
+                            // Move card to another temporary hand
+                            Hand clickedHand = Solitaire_Game.CreateHand(c);
+
+                            Solitaire_Game.GetDiscardPile().Add(c);
+                        }
+                        UpdateCardPileGUI();
+                        Solitaire_Game.ClearSelected();
+                    }
+                    Solitaire_Game.ClearSelected();
+                }
+            }
+        }
+
+        private void suitPilePicture4_Click(object sender, EventArgs e) {
+            if (Solitaire_Game.GetSelected() != null) {
+                // Set clicked hand
+                CardPile clickedPile = Solitaire_Game.GetSuitPiles(3);
+
+                // If selected hand isn't empty
+                if (Solitaire_Game.GetSelected().GetCount() != 0) {
+                    // Check if the move is valid
+                    if (Solitaire_Game.ValidateSuitMove(clickedPile)) {
+                        Solitaire_Game.MoveCardToSuit(clickedPile);
+                        // If the selected position isn't the discard pile
+                        if (Solitaire_Game.GetSelectedPos() < 8) {
+                            // If the initially selected hand already has multiple cards visible, decrement it 
+                            if (Solitaire_Game.GetNumberOfCardsVisible(Solitaire_Game.GetSelectedPos()) > 1) {
+                                Solitaire_Game.DecrementNumberOfCardsVisible(Solitaire_Game.GetSelectedPos());
+                            }
+                        }
+                        // Update the GUI
+                        UpdateGUI();
+                        UpdateSuitPileGUI();
+                    } else {
+                        MessageBox.Show("Move not allowed - Cannot place this card onto this pile");
+                        Solitaire_Game.MoveCardToSuit(clickedPile);
+                        if (Solitaire_Game.GetSelectedPos() == 8) {
+                            // Put the cards back in the discard pile
+                            // Store pile so we can remove the last card
+                            Hand temp = new Hand();
+                            for (int i = 0; i < clickedPile.GetCount() - 1; i++) {
+                                temp.Add(clickedPile.DealOneCard());
+                            }
+
+                            // Remove the last card 
+                            Card c = clickedPile.DealOneCard();
+
+                            // Add cards back into the discard pile
+                            for (int i = 0; i < temp.GetCount(); i++) {
+                                clickedPile.Add(temp.GetCard(i));
+                                temp.RemoveAt(i);
+                            }
+
+                            // Move card to another temporary hand
+                            Hand clickedHand = Solitaire_Game.CreateHand(c);
+
+                            Solitaire_Game.GetDiscardPile().Add(c);
+                        }
+                        UpdateCardPileGUI();
+                        Solitaire_Game.ClearSelected();
+                    }
+                    Solitaire_Game.ClearSelected();
+                }
+            }
+        }
+
+        
+        private void discardPilePicture_Click(object sender, EventArgs e) {
+
+            // If discard pile isn't empty
+            //if (discardPilePicture.Image != null) {
+            if (Solitaire_Game.GetDiscardPile().GetCount() != 0) { 
+                // Make the card pile easier to read
+                CardPile clickedPile = Solitaire_Game.GetDiscardPile();
+
+                // Store pile so we can remove the last card
+                Hand temp = new Hand();
+                for (int i = 0; i < clickedPile.GetCount() - 1; i++) {
+                    temp.Add(clickedPile.DealOneCard());
+                }
+
+                // Remove the last card 
+                Card c = clickedPile.DealOneCard();
+
+                // Add cards back into the discard pile
+                for (int i = 0; i < temp.GetCount(); i++) {
+                    clickedPile.Add(temp.GetCard(i));
+                    temp.RemoveAt(i);
+                }
+                
+                // Move card to another temporary hand
+                Hand clickedHand = Solitaire_Game.CreateHand(c);
+
+                // If selected hand is null
+                if (Solitaire_Game.GetSelected() == null) {
+                    // Special selected pos
+                    selectedPos = 8;
+                    // Set the clicked hand as selected
+                    Solitaire_Game.SetSelected(clickedHand, selectedPos);
+                } else {
+                    MessageBox.Show("Move not allowed - Cannot place card onto Discard Pile");
+                    Solitaire_Game.ClearSelected();
+                }
             }
         }
     }
