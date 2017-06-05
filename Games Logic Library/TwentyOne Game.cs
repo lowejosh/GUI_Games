@@ -54,28 +54,28 @@ namespace Games_Logic_Library {
             int total = 0;
 
             foreach (Card c in hands[who]) {
-                if (c.GetFaceValue() == FaceValue.Jack || c.GetFaceValue() == FaceValue.Queen || c.GetFaceValue() == FaceValue.King) {
-                    // Increment total by 10 if the face is a 10 point card
-                    total += 10;
-                } else if (c.GetFaceValue() == FaceValue.Ace) {
+                if (c.GetFaceValue() == FaceValue.Ace) {
                     // Increment total by 11 if the card is an ace
                     total += 11;
+                } else if (c.GetFaceValue() == FaceValue.Jack || c.GetFaceValue() == FaceValue.Queen || c.GetFaceValue() == FaceValue.King) {
+                    // Increment total by 10 if the face is a 10 point card
+                    total += 10;
                 } else {
                     // Increment total by the index position of the enumerator + 2, which comes out as the card value
                     total += ((int)c.GetFaceValue() + 2);
                 }
             } 
 
-            //Subtract 10 from points for every ace with value one
-            total -= (numOfUserAcesWithValueOne * 10);
-
             // If player or dealer has busted
-            if (total > 21) {
-                if (who == 1) {
-                    numOfGamesWon[0]++;
-                } else {
-                    numOfGamesWon[1]++;
-                }
+            if (total > 21 && who == 1) {
+                numOfGamesWon[0]++;                
+            } else if (total > 21 && who == 0) {
+                numOfGamesWon[1]++;                
+            }
+
+            // For ever ace selected to value at one, remove 10 points from the total
+            for (int i = 0; i < numOfUserAcesWithValueOne; i++) {
+                total -= 10;
             }
 
             // Add points to the total
@@ -96,9 +96,9 @@ namespace Games_Logic_Library {
             }
 
             // If anyone has won, increment the number of games won
-            if (totalPoints[0] < totalPoints[1] && totalPoints[1] < 22 && totalPoints[0] < 22) {
+            if (totalPoints[0] < totalPoints[1] && totalPoints[0] < 22 && totalPoints[1] < 22) {
                 numOfGamesWon[1]++;
-            } else if (totalPoints[1] < totalPoints[0] && totalPoints[1] < 22 && totalPoints[0] < 22) {
+            } else if (totalPoints[1] < totalPoints[0] && totalPoints[0] < 22 && totalPoints[1] < 22) {
                 numOfGamesWon[0]++;
             }
         }

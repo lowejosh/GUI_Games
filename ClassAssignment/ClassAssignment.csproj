@@ -65,11 +65,11 @@
     <Compile Include="Pig_with_Two_Dice_Form.Designer.cs">
       <DependentUpon>Pig_with_Two_Dice_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Solitaire_Form.cs">
+    <Compile Include="Solitaire_Game_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Solitaire_Form.Designer.cs">
-      <DependentUpon>Solitaire_Form.cs</DependentUpon>
+    <Compile Include="Solitaire_Game_Form.Designer.cs">
+      <DependentUpon>Solitaire_Game_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="TwentyOne_Game_Form.cs">
       <SubType>Form</SubType>
@@ -103,8 +103,8 @@
     <EmbeddedResource Include="Pig_with_Two_Dice_Form.resx">
       <DependentUpon>Pig_with_Two_Dice_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Solitaire_Form.resx">
-      <DependentUpon>Solitaire_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Solitaire_Game_Form.resx">
+      <DependentUpon>Solitaire_Game_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TwentyOne_Game_Form.resx">
       <DependentUpon>TwentyOne_Game_Form.cs</DependentUpon>

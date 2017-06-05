@@ -55,6 +55,10 @@ namespace Low_Level_Objects_Library {
         public FaceValue GetFaceValue() {
             return faceValue;
         }
+        
+        public Colour GetColour() {
+            return colour;
+        }
 
        
 

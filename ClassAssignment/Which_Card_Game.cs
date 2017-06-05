@@ -19,7 +19,7 @@ namespace ClassAssignment {
         private void CardGameComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             if (cardGameComboBox.SelectedIndex == 0) {
                 this.Hide();
-                Solitaire_Form GameForm = new Solitaire_Form();
+                Solitaire_Game_Form GameForm = new Solitaire_Game_Form();
                 GameForm.Closed += (s, args) => this.Close();
                 GameForm.Show();
             } else if (cardGameComboBox.SelectedIndex == 1) {
