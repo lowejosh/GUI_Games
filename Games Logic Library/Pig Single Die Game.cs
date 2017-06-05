@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Low_Level_Objects_Library;
 
 namespace Games_Logic_Library {
+    /// <summary>
+    /// Contains all the logic necessary for implementation into the Pig Game Form class
+    /// </summary>
     public static class Pig_Single_Die_Game {
         // Initialise die
         private static Die die = new Die();

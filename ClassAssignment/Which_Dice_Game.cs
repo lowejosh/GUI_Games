@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClassAssignment {
+    /// <summary>
+    /// Contains the GUI and logic necessary to determine which dice game the user wishes to play
+    /// </summary>
     public partial class diceMenu : Form {
         public diceMenu() {
             InitializeComponent();

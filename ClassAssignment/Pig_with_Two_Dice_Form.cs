@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using Games_Logic_Library;
 
 namespace ClassAssignment {
+    /// <summary>
+    /// Displays the form GUI for the Pig Game Two Die Game and makes use of the logic implemented in the Pig Double Dice Game class for further interaction
+    /// </summary>
     public partial class Pig_with_Two_Dice_Form : Form {
         // Timer tick
         int tick = 0;

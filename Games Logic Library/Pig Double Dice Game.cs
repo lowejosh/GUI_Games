@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Low_Level_Objects_Library;
 
 namespace Games_Logic_Library {
+    /// <summary>
+    /// Contains all the logic necessary for implementation into the Pig with Two Dice Form class
+    /// </summary>
     public static class Pig_Double_Dice_Game {
         // Initialise dice
         private static Die[] dice = new Die[2] { new Die(), new Die() };

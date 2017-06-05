@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Low_Level_Objects_Library {
+    /// <summary>
+    /// Creates the Hand object which is necessary for grouping cards together. Logic implemented here is used throughout the project.
+    /// </summary>
     public class Hand : IEnumerable {
         private List<Card> hand = new List<Card>();
 

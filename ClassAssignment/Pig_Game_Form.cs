@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using Games_Logic_Library;
 
 namespace ClassAssignment {
+    /// <summary>
+    /// Displays the form GUI for the Pig Game and makes use of the logic implemented in the Pig Single Die Game class for further interaction
+    /// </summary>
     public partial class Pig_Game_Form : Form {
 
         public Pig_Game_Form() {

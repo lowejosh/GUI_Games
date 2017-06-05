@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClassAssignment {
+    /// <summary>
+    /// Contains the GUI initialization and logic for the intial menu to be shown in the project.
+    /// Author: Joshua Lowe
+    /// Student Number: n9745734
+    /// </summary>
     public partial class Initial_Menu : Form {
         public Initial_Menu() {
             InitializeComponent();

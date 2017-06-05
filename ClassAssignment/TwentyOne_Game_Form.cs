@@ -11,6 +11,9 @@ using Low_Level_Objects_Library;
 using Games_Logic_Library;
 
 namespace ClassAssignment {
+    /// <summary>
+    /// Displays the form and makes use of the logic implemented from the TwentyOne Game class
+    /// </summary>
     public partial class TwentyOne_Game_Form : Form {
         public TwentyOne_Game_Form() {
             InitializeComponent();

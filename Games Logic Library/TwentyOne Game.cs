@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Low_Level_Objects_Library;
 
 namespace Games_Logic_Library {
+    /// <summary>
+    /// Contains all the game logic necessary for the TwentyOne Game Form class
+    /// </summary>
     public static class TwentyOne_Game {
         // Constant
         public const int NUM_OF_PLAYERS = 2;
