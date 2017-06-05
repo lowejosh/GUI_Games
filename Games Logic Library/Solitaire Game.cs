@@ -20,6 +20,7 @@ namespace Games_Logic_Library {
         public static void SetUpGame() {
             // Set vars
             drawPile = new CardPile(true);
+            discardPile = new CardPile(false);
             tableauPiles = new Hand[NUM_OF_TABLES];
             
             // Initialise hands
@@ -54,9 +55,36 @@ namespace Games_Logic_Library {
             }
         }
 
+
+        /// <summary>
+        /// Draws one card from the draw pile
+        /// </summary>
+        /// <returns>Card: the card that was drawn</returns>
+        public static Card DrawOneCard() {
+            Card c = drawPile.DealOneCard();
+            discardPile.Add(c);
+            return c;
+        }
+
         public static Hand GetTableauPiles(int tableNo) {
             return tableauPiles[tableNo];
         }
 
+
+        /// <summary>
+        /// Returns the discard pile
+        /// </summary>
+        /// <returns>CardPile: the discard pile</returns>
+        public static CardPile GetDiscardPile() {
+            return discardPile;
+        }
+        
+        /// <summary>
+        /// Returns the draw pile
+        /// </summary>
+        /// <returns>CardPile: the draw pile</returns>
+        public static CardPile GetDrawPile() {
+            return drawPile;
+        }
     }
 }

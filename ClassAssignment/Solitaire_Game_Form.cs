@@ -19,6 +19,9 @@ namespace ClassAssignment {
         public Solitaire_Game_Form() {
             InitializeComponent();
             InitializeForm();
+            Solitaire_Game.SetUpGame();
+            UpdateGUI();
+            UpdateCardPileGUI();
         }
 
         private void InitializeForm() {
@@ -28,26 +31,54 @@ namespace ClassAssignment {
             // Initialise picturebox group multi-array
             allHands = new PictureBox[Solitaire_Game.NUM_OF_TABLES][];
 
-            // For every table
-            for (int i = 0; i < Solitaire_Game.NUM_OF_TABLES; i++) {
+        }
 
-                // Initialize another picturebox array
-                allHands[i] = new PictureBox[Solitaire_Game.NUM_OF_TABLES];
-            }
-             
+        private void pictureBox_Click(object sender, EventArgs e) {
+            // Which card was clicked?
+            PictureBox clickedPictureBox = (PictureBox)sender;
+            // Get a reference to the card
+            Card clickedCard = (Card)clickedPictureBox.Tag;
+
+            TryToPlayCard(clickedCard);
+        }
+
+        private void TryToPlayCard(Card clickedCard) {
+            // Debug 
+            MessageBox.Show(clickedCard.ToString(false, true), "Clicked");
+
+
         }
 
         private void drawPilePicture_Click(object sender, EventArgs e) {
-            Solitaire_Game.SetUpGame();
-            
-            UpdateGUI();
+            if (Solitaire_Game.GetDrawPile().GetCount() != 0) {
+                Solitaire_Game.DrawOneCard();
+                UpdateCardPileGUI();
+            }
         }
 
         private void UpdateGUI() {
+            // For every table
             for (int i = 0; i < Solitaire_Game.NUM_OF_TABLES; i++) {
+                // Update the table GUI
                 UpdateTable(Solitaire_Game.GetTableauPiles(i), playArea[i]);
             }
         }
+
+        private void UpdateCardPileGUI() {
+            // If there is a card in the draw pile 
+            if (Solitaire_Game.GetDrawPile().GetCount() != 0) {
+                drawPilePicture.Image = Images.GetBackOfCardImage();
+            } else {
+                drawPilePicture.Image = null;
+            }
+            // If there is a card in the discard pile
+            if (Solitaire_Game.GetDiscardPile().GetCount() != 0) {
+                // Set the picturebox to the last card in the pile
+                discardPilePicture.Image = Images.GetCardImage(Solitaire_Game.GetDiscardPile().GetLastCardInPile());
+            }
+
+        }
+
 
         private void UpdateTable(Hand hand, TableLayoutPanel tableLayoutPanel) {
             tableLayoutPanel.Controls.Clear(); // Remove any cards already being shown.
@@ -62,10 +93,18 @@ namespace ClassAssignment {
                 pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
                 // Remove spacing around the PictureBox. (Default is 3 pixels.)
                 pictureBox.Margin = new Padding(0);
+                // If the card if the last card of the hand
                 if (cardCount == hand.GetCount() - 1) {
+                    // Show the card face up
                     pictureBox.Image = Images.GetCardImage(card);
+                    // Set event-handler for click on this PictureBox
+                    pictureBox.Click += new EventHandler(pictureBox_Click);
+                    // Tell the PictureBox which card object it has the picture of
+                    pictureBox.Tag = card;
                 } else {
+                    // Show the card face down
                     pictureBox.Image = Images.GetBackOfCardImage();
+                    pictureBox.Tag = card;
                 }
                 // Add the PictureBox object to the tableLayoutPanel.
                 tableLayoutPanel.Controls.Add(pictureBox);

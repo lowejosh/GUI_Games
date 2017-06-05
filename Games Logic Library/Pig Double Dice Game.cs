@@ -38,7 +38,7 @@ namespace Games_Logic_Library {
         /// Rolls the die once for the current player, updating the player’s score 
         /// appropriately according to the faceValue just rolled.
         /// </summary>
-        /// <returns>Returns true if the player has rolled a “1”, otherwise it returns false.</returns>
+        /// <returns>bool: Returns true if the player has rolled a “1”, otherwise it returns false.</returns>
         public static bool PlayGame() {
 
             // Roll the dice and update the face values
@@ -74,7 +74,7 @@ namespace Games_Logic_Library {
         /// <summary>
         /// Shows whether a player has won 
         /// </summary>
-        /// <returns>Returns true if a player has won (by reaching 30 points) and returns false if not</returns>
+        /// <returns>bool: Returns true if a player has won (by reaching 30 points) and returns false if not</returns>
         public static bool HasWon() {
             return (pointsTotal[0] >= 30 || pointsTotal[1] >= 30) ? true : false; // Only return true when points for either player has reached the winning amount
         }// End HasWon
@@ -82,7 +82,7 @@ namespace Games_Logic_Library {
         /// <summary>
         /// Gets the first player's name 
         /// </summary>
-        /// <returns>Return the 0th position in the playersName array, Player 1</returns>
+        /// <returns>string[]: Return the 0th position in the playersName array, Player 1</returns>
         public static string GetFirstPlayersName() {
             // Return player 1's name
             return playersName[0];
@@ -91,7 +91,7 @@ namespace Games_Logic_Library {
         /// <summary>
         /// Gets the next player's name
         /// </summary>
-        /// <returns>Returns the opposite player to the current player</returns>
+        /// <returns>string[]: Returns the opposite player to the current player</returns>
         public static string GetNextPlayersName() {
             return (currentPlayer == playersName[0]) ? playersName[1] : playersName[0]; // Return the next player's name depending on the value of currentPlayer 
         }// End GetNextPlayersName
@@ -108,8 +108,8 @@ namespace Games_Logic_Library {
         /// <summary>
         /// Gets the face value
         /// </summary>
-        /// <param name="die">Die which is being evaluated for it's face value</param>
-        /// <returns>The face value</returns>
+        /// <param name="die">int: Die which is being evaluated for it's face value</param>
+        /// <returns>int: The face value</returns>
         public static int GetFaceValue(int die) {
             return (die == 0) ? dice[0].GetFaceValue() : dice[1].GetFaceValue();
         }// End GetFaceValue
@@ -117,7 +117,7 @@ namespace Games_Logic_Library {
         /// <summary>
         /// Gets the current player value
         /// </summary>
-        /// <returns>returns the currentPlayer variable</returns>
+        /// <returns>string: returns the currentPlayer variable</returns>
         public static string GetCurrentPlayer() {
             return currentPlayer;
         }// End GetCurrentPlayer
@@ -125,7 +125,7 @@ namespace Games_Logic_Library {
         /// <summary>
         /// Sets the current player variable to a desired value
         /// </summary>
-        /// <param name="playerName">Input string paramater to set the currentPlayer value to</param>
+        /// <param name="playerName">string: Input string paramater to set the currentPlayer value to</param>
         public static void SetCurrentPlayer(string playerName) {
             currentPlayer = playerName;
         }// End SetCurrentPlayer
