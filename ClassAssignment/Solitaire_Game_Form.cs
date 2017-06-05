@@ -51,6 +51,7 @@ namespace ClassAssignment {
 
         private void UpdateTable(Hand hand, TableLayoutPanel tableLayoutPanel) {
             tableLayoutPanel.Controls.Clear(); // Remove any cards already being shown.
+            int cardCount = 0;
 
             foreach (Card card in hand) {
                 // Construct a PictureBox object.
@@ -61,9 +62,14 @@ namespace ClassAssignment {
                 pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
                 // Remove spacing around the PictureBox. (Default is 3 pixels.)
                 pictureBox.Margin = new Padding(0);
-                pictureBox.Image = Images.GetBackOfCardImage();
+                if (cardCount == hand.GetCount() - 1) {
+                    pictureBox.Image = Images.GetCardImage(card);
+                } else {
+                    pictureBox.Image = Images.GetBackOfCardImage();
+                }
                 // Add the PictureBox object to the tableLayoutPanel.
                 tableLayoutPanel.Controls.Add(pictureBox);
+                cardCount++;
             }
         }
     }
